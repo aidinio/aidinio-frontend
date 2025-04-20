@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AnimatedElements from "./AnimatedElements";
+import Navbar from "./Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <div className="bg-black absolute top-0 left-0 w-[100vw] h-[100vh]"></div>
         <div className="bg-white rounded-[55px] absolute top-0 left-0 w-[100vw] h-[100vh] p-0 overflow-hidden">
-          <div className="relative z-0 w-[150vw] h-[150vh]">
+          <div className="relative z-10 w-[100vw] h-[100vh]">
             <MySvg />
             <div className="blur-[150px] absolute left-[0px] top-[0px] rounded-full w-[100vw] h-[100vh]">
               <div className="filter-[url(#goo)]">
@@ -30,8 +31,13 @@ export default function RootLayout({
               </div>
             </div>
             <div className="absolute left-[0px] top-[0px] rounded-full w-[100vw] h-[100vh] block filter-[url(#nnnoise-filter)] opacity-60"></div>
+            <div className="relative p-10 z-10 w-[100vw] h-[100vh]">
+              <div className="flex items-center justify-between w-[100vw] h-[100vh]">
+                <Navbar />
+                {children}
+              </div>
+            </div>
           </div>
-          <div className="relative w-full h-full z-0 p-10">{children}</div>
         </div>
       </body>
     </html>
