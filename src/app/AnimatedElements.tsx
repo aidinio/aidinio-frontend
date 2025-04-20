@@ -7,6 +7,7 @@ const classNames = [
   "absolute rounded-full bg-[#A7FFD5] w-[600px] h-[600px] block",
   "absolute rounded-full bg-[#FFB2B2] w-[550px] h-[550px] block",
   "absolute rounded-full bg-[#FEFFBA] w-[500px] h-[500px] block",
+  "absolute rounded-full bg-[#FEFFBA] w-[500px] h-[500px] block",
   "absolute rounded-full bg-[#DCBAFF] w-[450px] h-[450px] block",
   "absolute rounded-full bg-[#DCBAFF] w-[450px] h-[450px] block",
   "absolute rounded-full bg-[#BAF7FF] w-[450px] h-[450px] block",
@@ -18,6 +19,7 @@ const AnimatedElements = () => {
   const elements = [
     { dim: 600 },
     { dim: 550 },
+    { dim: 500 },
     { dim: 500 },
     { dim: 450 },
     { dim: 450 },

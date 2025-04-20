@@ -7,16 +7,24 @@ export default function Navbar() {
   return (
     <ul className="font-medium flex flex-col gap-5 h-full items-start justify-center justify-self-start">
       <li>
-        <NavbarItem Icon={House}>Home</NavbarItem>
+        <a href="">
+          <NavbarItem Icon={House}>Home</NavbarItem>
+        </a>
       </li>
       <li>
-        <NavbarItem Icon={Cube}>Portfolio</NavbarItem>
+        <a href="">
+          <NavbarItem Icon={Cube}>Portfolio</NavbarItem>
+        </a>
       </li>
       <li>
-        <NavbarItem Icon={User}>About Me</NavbarItem>
+        <a href="">
+          <NavbarItem Icon={User}>About Me</NavbarItem>
+        </a>
       </li>
       <li>
-        <NavbarItem Icon={Article}>Blog</NavbarItem>
+        <a href="">
+          <NavbarItem Icon={Article}>Blog</NavbarItem>
+        </a>
       </li>
       {/* <li>
         <NavbarItem>Portfolio</NavbarItem>
@@ -33,7 +41,7 @@ export default function Navbar() {
 
 function NavbarItem({ Icon, children }: { Icon: Icon; children: ReactNode }) {
   return (
-    <div className="flex items-center content-center gap-3 px-[24px] py-[24px] bg-white rounded-[24px]">
+    <div className="shadow-default flex items-center content-center gap-3 px-[24px] py-[24px] bg-white rounded-[24px]">
       <Icon size={20} weight="bold" />
       {children}
     </div>
