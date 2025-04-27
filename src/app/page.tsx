@@ -19,7 +19,7 @@ export default function Home() {
               Aidin
             </span>
           </h1>
-          <p className="text-justify text-[24px] font-semibold text-[#939393] px-6">
+          <p className="text-justify text-[24px] font-medium text-[#939393] px-6">
             A{" "}
             <span className="font-bold bg-gradient-to-r from-[#DCBAFF] to-[#FFA4A4] bg-clip-text text-transparent uppercase">
               passionate

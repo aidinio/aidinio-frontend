@@ -2,14 +2,15 @@
 
 import { ReactNode } from "react";
 import { House, Cube, User, Article, Icon } from "@phosphor-icons/react";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <ul className="font-medium flex flex-col gap-5 h-full items-start justify-center justify-self-start">
+    <ul className="font-medium flex flex-col gap-5 h-full items-start justify-center justify-self-start shrink-0 sticky">
       <li>
-        <a href="">
+        <Link href="/">
           <NavbarItem Icon={House}>Home</NavbarItem>
-        </a>
+        </Link>
       </li>
       <li>
         <a href="">
@@ -22,9 +23,9 @@ export default function Navbar() {
         </a>
       </li>
       <li>
-        <a href="">
+        <Link href="/blog">
           <NavbarItem Icon={Article}>Blog</NavbarItem>
-        </a>
+        </Link>
       </li>
       {/* <li>
         <NavbarItem>Portfolio</NavbarItem>

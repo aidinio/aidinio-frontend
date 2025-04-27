@@ -30,8 +30,8 @@ const AnimatedElements = () => {
   const getQuadraticExtremeRandom = () => {
     const randomValue = Math.random();
     return randomValue < 0.5
-      ? Math.pow(randomValue, 4)
-      : 1 - Math.pow(1 - randomValue, 4);
+      ? Math.pow(randomValue, 2)
+      : 1 - Math.pow(1 - randomValue, 2);
   };
 
   const getRandomPosition = (dim: number) => ({
@@ -42,13 +42,12 @@ const AnimatedElements = () => {
   const [positions, setPositions] = useState(
     elements.map((e) => getRandomPosition(e.dim))
   );
-  useEffect(
-    () =>
+  useEffect(() => {
+    if (window)
       setPositions((prevPositions) =>
         prevPositions.map((_, index) => getRandomPosition(elements[index].dim))
-      ),
-    []
-  );
+      );
+  }, []);
   useEffect(() => {
     const interval = setInterval(() => {
       setPositions((prevPositions) =>

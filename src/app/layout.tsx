@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
+  fallback: ["Arial", "Times New Roman"]
 });
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <div className="bg-black absolute top-0 left-0 w-[100vw] h-[100vh]"></div>
         <div className="bg-white rounded-[55px] absolute top-0 left-0 w-[100vw] h-[100vh] p-0 overflow-hidden">
-          <div className="relative z-10">
+          <div className="relative z-10 h-full overflow-scroll">
             <MySvg />
             <div className="blur-[150px] absolute left-[0px] top-[0px] rounded-full w-[100vw] h-[100vh]">
               <div className="filter-[url(#goo)]">
@@ -32,7 +33,7 @@ export default function RootLayout({
             </div>
             <div className="absolute left-[0px] top-[0px] rounded-full w-[100vw] h-[100vh] block filter-[url(#nnnoise-filter)] opacity-60"></div>
             <div className="relative p-10 z-10 w-[100vw] h-[100vh]">
-              <div className="flex items-center justify-stretch h-full">
+              <div className="flex items-center justify-stretch h-full gap-[60px]">
                 <Navbar />
                 {children}
               </div>
