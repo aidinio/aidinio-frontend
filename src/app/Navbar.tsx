@@ -13,7 +13,7 @@ export default function Navbar() {
         </Link>
       </li>
       <li>
-        <a href="">
+        <a href="/portfolio">
           <NavbarItem Icon={Cube}>Portfolio</NavbarItem>
         </a>
       </li>
@@ -27,15 +27,6 @@ export default function Navbar() {
           <NavbarItem Icon={Article}>Blog</NavbarItem>
         </Link>
       </li>
-      {/* <li>
-        <NavbarItem>Portfolio</NavbarItem>
-      </li>
-      <li>
-        <NavbarItem>Resume</NavbarItem>
-      </li>
-      <li>
-        <NavbarItem>About Me</NavbarItem>
-      </li> */}
     </ul>
   );
 }
