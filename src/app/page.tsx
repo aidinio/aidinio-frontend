@@ -24,13 +24,16 @@ export default function Home() {
             <span className="font-bold bg-gradient-to-r from-[#DCBAFF] to-[#FFA4A4] bg-clip-text text-transparent uppercase">
               passionate
             </span>{" "}
-            <span className="font-bold text-black">programmer</span>,
-            currently working as a{" "}
-            <span className="text-black">fronted devevloper</span>, and an
-            all-time Linux and FOSS enthusiast.
+            <span className="font-bold text-black">programmer</span>, currently
+            working as a <span className="text-black">fronted devevloper</span>,
+            and an all-time Linux and FOSS enthusiast.
           </p>
-          <a className="px-[35px] py-[20px] rounded-[20px] text-[16px] bg-gradient-to-r to-50%  from-[#B3B8E9] to-[#FFD9F0] uppercase font-bold flex justify-center items-center gap-3" href="">
-            read more <div className="bg-[url(/arrow.svg)] bg-center bg-size-[cover] size-[20px] bg-no-repeat inline-block"></div>
+          <a
+            className="px-[35px] py-[20px] rounded-[20px] text-[16px] bg-gradient-to-r to-50%  from-[#B3B8E9] to-[#FFD9F0] uppercase font-bold flex justify-center items-center gap-3"
+            href=""
+          >
+            read more{" "}
+            <div className="bg-[url(/arrow.svg)] bg-center bg-size-[cover] size-[20px] bg-no-repeat inline-block"></div>
           </a>
         </div>
         <ContactBar />
