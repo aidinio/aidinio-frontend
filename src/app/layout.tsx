@@ -3,10 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AnimatedElements from "./AnimatedElements";
 import Navbar from "./Navbar";
+import MainContent from "./MainContent";
 
 const inter = Inter({
   subsets: ["latin"],
-  fallback: ["Arial", "Times New Roman"]
+  fallback: ["Arial", "Times New Roman"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function RootLayout({
             <div className="relative p-10 z-10 w-[100vw] h-[100vh]">
               <div className="flex items-center justify-stretch h-full gap-[60px]">
                 <Navbar />
-                {children}
+                <MainContent>{children}</MainContent>
               </div>
             </div>
           </div>

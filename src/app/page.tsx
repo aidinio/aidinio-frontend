@@ -3,15 +3,9 @@ import ContactBar from "./ContactBar";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center gap-[64px] grow">
-      <Image
-        alt="Portrait of Aidin"
-        src={"/portrait.jpg"}
-        width={575}
-        height={575}
-        className="rounded-[60px] shadow-default"
-      />
+    <div className="flex items-center justify-center gap-[64px] grow h-full w-full">
       <div className="flex items-center gap-[32px]">
+          <Picture alt={"Aidin's portrait"} src="/portrait.jpg" />
         <div className="size-[575px] bg-white rounded-[60px] flex flex-col items-center justify-between py-[65px] px-[80px] drop-shadow-[10px_10px_0_0_rgba(0,0,0,1)] shadow-default">
           <h1 className="text-[96px] font-bold w-fit">
             {`I'm`}{" "}
@@ -39,5 +33,17 @@ export default function Home() {
         <ContactBar />
       </div>
     </div>
+  );
+}
+
+function Picture({alt, src}: {alt: string, src: string}) {
+  return (
+    <Image
+      alt={alt}
+      src={src}
+      width={575}
+      height={575}
+      className="rounded-[60px] shadow-default"
+    />
   );
 }

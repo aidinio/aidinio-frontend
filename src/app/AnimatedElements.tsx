@@ -4,59 +4,63 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const classNames = [
-  "absolute rounded-full bg-[#A7FFD5] w-[600px] h-[600px] block",
-  "absolute rounded-full bg-[#FFB2B2] w-[550px] h-[550px] block",
-  "absolute rounded-full bg-[#FEFFBA] w-[500px] h-[500px] block",
-  "absolute rounded-full bg-[#FEFFBA] w-[500px] h-[500px] block",
-  "absolute rounded-full bg-[#DCBAFF] w-[450px] h-[450px] block",
-  "absolute rounded-full bg-[#DCBAFF] w-[450px] h-[450px] block",
-  "absolute rounded-full bg-[#BAF7FF] w-[450px] h-[450px] block",
-  "absolute rounded-full bg-[#BAF7FF] w-[450px] h-[450px] block",
+  "absolute rounded-full bg-[#A7FFD5] size-[31vw] block",
+  "absolute rounded-full bg-[#FFB2B2] size-[28vw] block",
+  "absolute rounded-full bg-[#FEFFBA] size-[26vw] block",
+  "absolute rounded-full bg-[#FEFFBA] size-[26vw] block",
+  "absolute rounded-full bg-[#DCBAFF] size-[23vw] block",
+  "absolute rounded-full bg-[#DCBAFF] size-[23vw] block",
+  "absolute rounded-full bg-[#BAF7FF] size-[23vw] block",
+  "absolute rounded-full bg-[#BAF7FF] size-[23vw] block",
   //   "absolute rounded-full bg-[#DCBAFF] w-[600px] h-[600px] block",
 ];
 
+const elements = [
+  { dim: 600 },
+  { dim: 550 },
+  { dim: 500 },
+  { dim: 500 },
+  { dim: 450 },
+  { dim: 450 },
+  { dim: 450 },
+  { dim: 450 },
+];
+
+const getQuadraticExtremeRandom = () => {
+  const randomValue = Math.random();
+  return randomValue < 0.5
+    ? Math.pow(randomValue, 2)
+    : 1 - Math.pow(1 - randomValue, 2);
+};
+
 const AnimatedElements = () => {
-  const elements = [
-    { dim: 600 },
-    { dim: 550 },
-    { dim: 500 },
-    { dim: 500 },
-    { dim: 450 },
-    { dim: 450 },
-    { dim: 450 },
-    { dim: 450 },
-  ];
-
-  const getQuadraticExtremeRandom = () => {
-    const randomValue = Math.random();
-    return randomValue < 0.5
-      ? Math.pow(randomValue, 2)
-      : 1 - Math.pow(1 - randomValue, 2);
-  };
-
-  const getRandomPosition = (dim: number) => ({
-    x: getQuadraticExtremeRandom() * (window.innerWidth - dim),
-    y: getQuadraticExtremeRandom() * (window.innerHeight - dim),
-  });
-
-  const [positions, setPositions] = useState(
-    elements.map((e) => getRandomPosition(e.dim))
-  );
+  const [positions, setPositions] = useState<{ x: number; y: number }[]>([]);
   useEffect(() => {
-    if (window)
-      setPositions((prevPositions) =>
-        prevPositions.map((_, index) => getRandomPosition(elements[index].dim))
+    const getRandomPosition = (dim: number) => ({
+      x: getQuadraticExtremeRandom() * (window.innerWidth - dim),
+      y: getQuadraticExtremeRandom() * (window.innerHeight - dim),
+    });
+
+    let effectPositions = elements.map((e) => getRandomPosition(e.dim));
+    effectPositions = effectPositions.map((_, index) =>
+      getRandomPosition(elements[index].dim)
+    );
+    const generateRandomPositions = () => {
+      effectPositions = effectPositions.map((_, index) =>
+        getRandomPosition(elements[index].dim)
       );
-  }, []);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPositions((prevPositions) =>
-        prevPositions.map((_, index) => getRandomPosition(elements[index].dim))
-      );
-    }, 3000); // Change position every 2 seconds
+      console.log(effectPositions);
+      setPositions(effectPositions);
+    };
+    generateRandomPositions();
+    const interval = setInterval(generateRandomPositions, 3000);
 
     return () => clearInterval(interval); // Cleanup on unmount
-  }, [elements, getRandomPosition]);
+  }, []);
+
+  if (positions.length === 0) {
+    return null; // or a loading spinner
+  }
 
   return (
     <div style={{ position: "relative", overflow: "hidden", height: "100vh" }}>
