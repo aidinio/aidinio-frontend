@@ -49,7 +49,6 @@ const AnimatedElements = () => {
       effectPositions = effectPositions.map((_, index) =>
         getRandomPosition(elements[index].dim)
       );
-      console.log(effectPositions);
       setPositions(effectPositions);
     };
     generateRandomPositions();

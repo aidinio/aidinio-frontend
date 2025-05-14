@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import Badge from "@/app/portfolio/Badge";
-import { portfolios, Technology } from "./data";
+import { portfolios } from "@/app/data/Portfolio";
 import { ReactNode } from "react";
+import type { Portfolio, Technology } from "@/app/data/types";
 
-export default function Portfolio() {
-  const portfolio = portfolios[0];
+export default function Portfolio({ data }: { data: Portfolio }) {
+  const portfolio = data;
   return (
     <div className="w-full h-full bg-white rounded-[50px] overflow-hidden p-[75px] box-border relative shadow-default">
       <BGBlobs />

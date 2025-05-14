@@ -190,7 +190,6 @@ function SimilarArticles() {
   const [api, setApi] = useState<CarouselApi>();
   const [canPrev, setCanPrev] = useState<undefined | boolean>(undefined);
   const [canNext, setCanNext] = useState<undefined | boolean>(undefined);
-  console.log(api);
   useEffect(() => {
     api?.on("scroll", () => {
       if (!api) return;
