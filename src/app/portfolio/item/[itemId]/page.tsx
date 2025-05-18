@@ -1,5 +1,5 @@
 import { portfolios } from "@/app/data/Portfolio";
-import Portfolio from "../../page";
+import Portfolio from "./SinglePortfolio";
 
 export default async function Page({ params }: { params: Promise<{itemId: string}>}) {
   const { itemId } = await params;

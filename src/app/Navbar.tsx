@@ -1,5 +1,5 @@
-import { navItems } from "./data/NavbarItems";
-import { NavbarItem } from "./NavbarClient";
+import { navItems } from "@/app/data/NavbarItems";
+import { NavbarItem } from "@/app/NavbarClient";
 
 export default function Navbar() {
   return (

@@ -40,9 +40,9 @@ export const portfolios: Portfolio[] = [
     title: "Portfolio Website",
     description: "A personal portfolio to showcase projects and skills.",
     images: [
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
+      "/portfolio-placeholder-1.png",
+      "/portfolio-placeholder-2.png",
+      "/portfolio-placeholder-3.png",
     ],
     technologies: [
       { icon: "logos:react", text: "React" },
@@ -53,15 +53,14 @@ export const portfolios: Portfolio[] = [
     category: portfolioCategories.frontend.title,
   },
   {
-
     id: 2,
     title: "Social Media App",
     description:
       "A social media platform to connect with friends and share updates.",
     images: [
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
+      "/portfolio-placeholder-1.png",
+      "/portfolio-placeholder-2.png",
+      "/portfolio-placeholder-3.png",
     ],
     technologies: [
       { icon: "logos:nextjs-icon", text: "Next.js" },
@@ -77,9 +76,9 @@ export const portfolios: Portfolio[] = [
     description:
       "A social media platform to connect with friends and share updates.",
     images: [
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
+      "/portfolio-placeholder-1.png",
+      "/portfolio-placeholder-2.png",
+      "/portfolio-placeholder-3.png",
     ],
     technologies: [
       { icon: "logos:nextjs-icon", text: "Next.js" },
@@ -95,9 +94,9 @@ export const portfolios: Portfolio[] = [
     description:
       "A social media platform to connect with friends and share updates.",
     images: [
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
+      "/portfolio-placeholder-1.png",
+      "/portfolio-placeholder-2.png",
+      "/portfolio-placeholder-3.png",
     ],
     technologies: [
       { icon: "logos:nextjs-icon", text: "Next.js" },
@@ -113,9 +112,9 @@ export const portfolios: Portfolio[] = [
     description:
       "A social media platform to connect with friends and share updates.",
     images: [
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
-      "/portfolio-placeholder.png",
+      "/portfolio-placeholder-1.png",
+      "/portfolio-placeholder-2.png",
+      "/portfolio-placeholder-3.png",
     ],
     technologies: [
       { icon: "logos:nextjs-icon", text: "Next.js" },

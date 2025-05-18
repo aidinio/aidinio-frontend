@@ -1,112 +1,175 @@
-import Image from "next/image";
+import { ProjectorScreen, Spiral } from "@phosphor-icons/react/dist/ssr";
+import { PhosphorIconName, Technology } from "../data/types";
+import { iconCache } from "@/app/data/cache";
+import dynamic from "next/dynamic";
+import clsx from "clsx";
+import { portfolioCategories, portfolioCategory } from "../data/Portfolio";
 import Link from "next/link";
-import Badge from "@/app/portfolio/Badge";
-import { portfolios } from "@/app/data/Portfolio";
-import { ReactNode } from "react";
-import type { Portfolio, Technology } from "@/app/data/types";
+import Image from "next/image";
+import Badge from "./Badge";
+import { portfolios } from "../data/Portfolio";
 
-export default function Portfolio({ data }: { data: Portfolio }) {
-  const portfolio = data;
+export default function Page() {
   return (
-    <div className="w-full h-full bg-white rounded-[50px] overflow-hidden p-[75px] box-border relative shadow-default">
-      <BGBlobs />
-      <div className="grid grid-cols-[62fr_38fr] grid-rows-[minmax(auto,62fr)_48fr] gap-x-[40px] gap-y-[30px] h-full box-border z-20 relative">
-        <div className="rounded-[50px] shadow-xl overflow-hidden">
-          <Image
-            src={portfolio.images[0]}
-            width={769}
-            height={454}
-            className="w-full scale-120"
-            alt="portfolio picture"
-          />
-        </div>
-        <div className="grid grid-cols-2 grid-rows-3 gap-x-[30px] gap-y-[10px]">
-          {portfolio.images.map((portfolioImage) => (
-            <PreviewPicture key={portfolioImage} src={portfolioImage} />
+    <PortfolioPage />
+  )
+}
+
+export function PortfolioPage({categoryTitle}: {categoryTitle?: string}) {
+  return (
+    <div className="w-full h-fit bg-white rounded-[50px] p-[75px] box-border relative shadow-default">
+      <div className="flex gap-10">
+        <h1 className="text-[64px] font-black">Portfolios</h1>
+        <div className="flex items-center justify-center gap-5">
+          {Object.keys(portfolioCategories).map((category) => (
+            <CategoryBadge
+              icon={portfolioCategories[category].icon}
+              label={portfolioCategories[category].title}
+              key={portfolioCategories[category].title}
+              href={`/portfolio/${encodeURIComponent(portfolioCategories[category].title)}`}
+              selected={categoryTitle === portfolioCategories[category].title}
+            />
           ))}
         </div>
-        <Description title={portfolio.title}>
-          {portfolio.description}
-        </Description>
-        <AdditionalInfo
+      </div>
+      <div className="flex flex-wrap gap-10 mt-10">
+      {portfolios.map((portfolio) => {
+        const category = Object.keys(portfolioCategories).find(category => portfolioCategories[category].title === portfolio.category) || "Other";
+        console.log(categoryTitle, category);
+        if (categoryTitle && categoryTitle !== portfolioCategories[category].title) return null;
+        return (
+          <PortfolioPreview
+          key={portfolio.id}
+          imageSrc={portfolio.images[0]}
+          imageAlt={portfolio.title}
+          category={{
+            icon: portfolioCategories[category].icon,
+            title: portfolioCategories[category].title,
+          }}
+          title={portfolio.title}
           technologies={portfolio.technologies}
-          liveSrc={portfolio.liveLink}
-        />
+          href={`/portfolio/item/${portfolio.id}`}
+          />
+        );
+      })}
       </div>
     </div>
   );
 }
 
-function PreviewPicture({ src }: { src: string }) {
-  return (
-    <Image
-      src={src}
-      width={227}
-      height={134}
-      className="rounded-[30px] w-full h-full max-w-[230px] max-h-[135px]"
-      alt="portfolio picture"
-    />
-  );
-}
-
-function Description({
-  className,
+function PortfolioPreview({
+  imageSrc,
+  imageAlt,
+  category,
   title,
-  children,
-}: {
-  className?: string;
-  title: string;
-  children: ReactNode;
-}) {
-  return (
-    <div className={className}>
-      <h1 className="text-[64px] font-black mb-[20px]">{title}</h1>
-      <p className="text-[24px] font-medium text-justify">{children}</p>
-    </div>
-  );
-}
-
-function AdditionalInfo({
-  className,
   technologies,
-  liveSrc,
+  href,
 }: {
-  className?: string;
+  imageSrc: string;
+  imageAlt: string;
+  category: portfolioCategory;
+  title: string;
   technologies: Technology[];
-  liveSrc: string;
+  href: string;
 }) {
+  const Icon = iconCache.has(category.icon)
+    ? iconCache.get(category.icon)
+    : dynamic(
+        () =>
+          import("@phosphor-icons/react/dist/ssr").then((mod) => {
+            iconCache.set(category.icon, mod[category.icon]);
+            return mod[category.icon];
+          }),
+        {
+          loading: () => (
+            <Spiral
+              size={20}
+              weight="bold"
+              className="animate-spin text-black"
+            />
+          ),
+        }
+      );
   return (
-    <div className={`h-full w-full ${className}`}>
-      <div className="flex flex-col justify-between h-full">
-        <div className="">
-          <h2 className="text-[36px] font-black mb-[10px]">Technologies</h2>
-          <div className="flex flex-wrap gap-[20px] gap-y-[10px]">
-            {technologies.map((technology) => (
-              <Badge
-                key={technology.text}
-                text={technology.text}
-                icon={technology.icon}
-              />
-            ))}
-          </div>
+    <div className="flex flex-col rounded-[30px] shadow-default max-w-[425px]">
+      <div className="overflow-hidden rounded-t-[30px] relative">
+        <Image
+          className="w-full"
+          src={imageSrc}
+          alt={imageAlt}
+          width="300"
+          height="200"
+        />
+        <div className="rounded-tl-[20px] absolute bottom-0 right-0 flex gap-3 items-center justify-center bg-white p-3 shadow-default">
+          <Icon
+            size={20}
+            weight="bold"
+            className="text-black rounded-full bg-white shadow-default"
+          />
+          {category.title}
+        </div>
+      </div>
+      <div className="flex flex-col px-[30px] py-[20px] gap-4">
+        <h2 className="text-[32px] font-bold m-0">{title}</h2>
+        <div className="flex flex-wrap gap-3">
+          {technologies.map((technology) => (
+            <Badge
+              key={technology.icon}
+              icon={technology.icon}
+              text={technology.text}
+            />
+          ))}
         </div>
         <Link
-          href={liveSrc}
-          className="w-[100%] py-[14px] text-[20px] font-semibold flex justify-center items-center self-center rounded-[19px] bg-gradient-to-r from-[#B1FFCB] to-[#D3FFC9] shadow-[0px_0px_15px_2px_#C2FFCA]"
+          href={href}
+          className="text-[20px] font-bold text-white bg-black rounded-[25px] flex items-center justify-center py-[17px] mt-5"
         >
-          View Live
+          View
         </Link>
       </div>
     </div>
   );
 }
 
-function BGBlobs() {
+export function CategoryBadge({
+  icon,
+  label,
+  href,
+  selected,
+}: {
+  icon: PhosphorIconName;
+  label: string;
+  href: string;
+  selected?: boolean;
+}) {
+  const Icon = iconCache.has(icon)
+    ? iconCache.get(icon)
+    : dynamic(
+        () =>
+          import("@phosphor-icons/react/dist/ssr").then((mod) => {
+            iconCache.set(icon, mod[icon]);
+            return mod[icon];
+          }),
+        {
+          loading: () => (
+            <Spiral
+              size={20}
+              weight="bold"
+              className="animate-spin text-black"
+            />
+          ),
+        }
+      );
   return (
-    <div className="z-10">
-      <div className="w-[50%] h-[50%] absolute bg-[#BAF7FF] top-[-10%] left-[-5%] z-0 blur-[1050px] opacity-75 rounded-full"></div>
-      <div className="w-[50%] h-[50%] absolute bg-[#FEFFBA] top-[20%] left-[-5%] z-0 blur-[1050px] opacity-75 rounded-full"></div>
-      <div className="w-[50%] h-[50%] absolute bg-[#FFB2B2] bottom-[-10%] left-[-5%] z-0 blur-[1050px] opacity-75 rounded-full"></div>
-    </div>
+    <Link
+      className={clsx(
+        "flex p-[20px] shadow-default items-center justify-center rounded-full gap-2",
+        { "font-bold text-white bg-black shadow-none": selected }
+      )}
+      href={encodeURI(href)}
+    >
+      <Icon weight={selected ? "bold" : "regular"} />
+      {label}
+    </Link>
   );
 }

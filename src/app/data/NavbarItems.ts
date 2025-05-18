@@ -11,14 +11,17 @@ export const navItems: NavItem[] = [
       ...Object.keys(portfolioCategories).map((categoryName) => ({
         icon: portfolioCategories[categoryName].icon,
         label: portfolioCategories[categoryName].title,
-        href: `/portfolio/category/${portfolioCategories[categoryName].title}`,
+        href: encodeURI(
+          `/portfolio/${encodeURIComponent(
+            portfolioCategories[categoryName].title
+          )}`
+        ),
         subItems: portfolios
           .filter(
             (portfolio) =>
               portfolio.category === portfolioCategories[categoryName].title
           )
           .map((portfolio) => {
-            console.log("[ ]", portfolio);
             return {
               icon: portfolioCategories[categoryName].icon,
               label: portfolio.title,

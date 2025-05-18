@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { Dispatch, SetStateAction, useContext, useState } from "react";
 import { Triangle, Circle, Spiral, Icon } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,8 +9,13 @@ import clsx from "clsx";
 import type { NavItem } from "@/app/data/types";
 import { createContext } from "react";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { iconCache } from "./data/cache";
 
-const levelContext = createContext(0);
+const levelContext = createContext<number>(0);
+const openItemContext = createContext<{
+  openItem: string | null;
+  setOpenItem: Dispatch<SetStateAction<string | null>> | null;
+}>({ openItem: null, setOpenItem: null });
 
 export type PhosphorIcon = keyof Omit<
   typeof import("@phosphor-icons/react/dist/ssr"),
@@ -18,9 +23,17 @@ export type PhosphorIcon = keyof Omit<
 >;
 
 export function NavbarItem({ data }: { data: NavItem }) {
+  const [openItem, setOpenItem] = useState<string | null>(null);
+  return (
+    <openItemContext.Provider value={{ openItem, setOpenItem }}>
+      <NavbarItem2 data={data} />
+    </openItemContext.Provider>
+  );
+}
+
+export function NavbarItem2({ data }: { data: NavItem }) {
   const pathname = usePathname();
-  const siteSection = pathname.split("/")[1];
-  const isActive = data.href === `/${siteSection}`;
+  const isActive = data.href === pathname;
   const level = useContext(levelContext);
   const Icon = iconCache.has(data.icon)
     ? iconCache.get(data.icon)
@@ -60,7 +73,7 @@ export function NavbarItem({ data }: { data: NavItem }) {
 
           {data.subItems &&
             data.subItems?.map((item) => (
-              <NavbarItem key={item.href} data={item} />
+              <NavbarItem2 key={item.href} data={item} />
             ))}
         </div>
       )}
@@ -73,11 +86,20 @@ export function NavbarItem({ data }: { data: NavItem }) {
   );
 }
 
-const iconCache: Map<PhosphorIcon, Icon> = new Map();
-
 export function SubItem({ data }: { data: NavItem }) {
+  const level = useContext(levelContext);
+  const pathname = usePathname();
+  const { openItem, setOpenItem } = useContext(openItemContext);
+  const isActive = pathname === data.href;
+  const isOpen = openItem === data.href;
   const [state, setState] = useState<"open" | "closed" | "selected" | "normal">(
-    data.subItems ? "closed" : "normal"
+    isActive
+      ? "selected"
+      : data.subItems && isOpen
+      ? "open"
+      : data.subItems && !isOpen
+      ? "closed"
+      : "normal"
   );
   const Icon = iconCache.has(data.icon)
     ? iconCache.get(data.icon)
@@ -104,35 +126,35 @@ export function SubItem({ data }: { data: NavItem }) {
         <Link href={data.href} className="flex gap-2 items-center">
           <Icon
             size={20}
-            weight={
-              state === "open" || state === "selected" ? "bold" : undefined
-            }
+            weight={state === "selected" || isActive ? "bold" : undefined}
           />
-          <span
-            className={
-              state === "open" || state === "selected" ? "font-bold" : ""
-            }
-          >
+          <span className={state === "selected" || isActive ? "font-bold" : ""}>
             {data.label}
           </span>
         </Link>
         <div
           onClick={() =>
-            state === "open" ? setState("closed") : setState("open")
+            data.subItems && isOpen && setOpenItem
+              ? (setState("closed"), setOpenItem(null))
+              : data.subItems && !isOpen && setOpenItem
+              ? (setState("open"), setOpenItem(data.href))
+              : null
           }
-          className="bg-white shadow-sm p-2 rounded-full"
+          className={clsx({
+            "bg-white shadow-sm p-2 rounded-full": data.subItems,
+          })}
         >
-          {state === "open" ? (
+          {data.subItems && isOpen ? (
             <Triangle size={10} weight="fill" className="rotate" />
-          ) : state === "closed" ? (
+          ) : data.subItems && !isOpen ? (
             <Triangle size={10} weight="fill" className="rotate-180" />
-          ) : state === "selected" ? (
+          ) : isActive ? (
             <Circle size={10} weight="fill" />
           ) : null}
         </div>
       </div>
       <AnimatePresence>
-        {state === "open" && data.subItems && (
+        {state === "open" && isOpen && data.subItems && (
           <motion.div
             initial={{
               opacity: 0,
