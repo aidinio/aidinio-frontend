@@ -35,6 +35,8 @@ export function NavbarItem2({ data }: { data: NavItem }) {
   const pathname = usePathname();
   const isActive = data.href === pathname;
   const level = useContext(levelContext);
+  const isInPath = pathname.split('/')[1] === data.href.split('/')[1].toLowerCase();
+  const [isHovered, setIsHovered] = useState(false);
   const Icon = iconCache.has(data.icon)
     ? iconCache.get(data.icon)
     : dynamic(
@@ -57,7 +59,9 @@ export function NavbarItem2({ data }: { data: NavItem }) {
   return (
     <levelContext.Provider value={level + 1}>
       {level === 0 && (
-        <div className="shadow-default flex flex-col gap-3 px-[24px] py-[24px] bg-white rounded-[24px]">
+        <div className={clsx(" flex flex-col gap-3 px-[24px] py-[24px]", {
+          "shadow-default bg-white rounded-[24px]": isInPath
+        })}>
           <div className="flex gap-3">
             <Link
               href={data.href}
@@ -71,7 +75,7 @@ export function NavbarItem2({ data }: { data: NavItem }) {
             </Link>
           </div>
 
-          {data.subItems &&
+          {(isInPath || isHovered) && data.subItems &&
             data.subItems?.map((item) => (
               <NavbarItem2 key={item.href} data={item} />
             ))}

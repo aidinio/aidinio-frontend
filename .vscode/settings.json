@@ -1,0 +1,5 @@
+{
+    "http.proxy": "http://localhost:2080",
+    "http.proxyStrictSSL": false,
+    "http.proxyAuthorization": null
+}

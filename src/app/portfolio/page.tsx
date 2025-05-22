@@ -1,4 +1,4 @@
-import { ProjectorScreen, Spiral } from "@phosphor-icons/react/dist/ssr";
+import { Spiral } from "@phosphor-icons/react/dist/ssr";
 import { PhosphorIconName, Technology } from "../data/types";
 import { iconCache } from "@/app/data/cache";
 import dynamic from "next/dynamic";
@@ -19,7 +19,7 @@ export function PortfolioPage({categoryTitle}: {categoryTitle?: string}) {
   return (
     <div className="w-full h-fit bg-white rounded-[50px] p-[75px] box-border relative shadow-default">
       <div className="flex gap-10">
-        <h1 className="text-[64px] font-black">Portfolios</h1>
+        <h1 className="text-[64px] font-black">Portfolio</h1>
         <div className="flex items-center justify-center gap-5">
           {Object.keys(portfolioCategories).map((category) => (
             <CategoryBadge
@@ -32,10 +32,9 @@ export function PortfolioPage({categoryTitle}: {categoryTitle?: string}) {
           ))}
         </div>
       </div>
-      <div className="flex flex-wrap gap-10 mt-10">
+      <div className="grid gap-[auto] gap-y-10 justify-items-center grid-cols-[repeat(3,1fr)]  mt-10">
       {portfolios.map((portfolio) => {
         const category = Object.keys(portfolioCategories).find(category => portfolioCategories[category].title === portfolio.category) || "Other";
-        console.log(categoryTitle, category);
         if (categoryTitle && categoryTitle !== portfolioCategories[category].title) return null;
         return (
           <PortfolioPreview

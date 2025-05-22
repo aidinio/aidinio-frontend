@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ContactBar from "./ContactBar";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="flex items-center justify-center gap-[64px] grow h-full w-full">
       <div className="flex items-center gap-[32px]">
