@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactBar from "./ContactBar";
+import Link from "next/link";
 
 export default async function Home() {
   return (
@@ -22,13 +23,13 @@ export default async function Home() {
             working as a <span className="text-black">fronted devevloper</span>,
             and an all-time Linux and FOSS enthusiast.
           </p>
-          <a
+          <Link
             className="px-[35px] py-[20px] rounded-[20px] text-[16px] bg-gradient-to-r to-50%  from-[#B3B8E9] to-[#FFD9F0] uppercase font-bold flex justify-center items-center gap-3"
             href=""
           >
             read more{" "}
             <div className="bg-[url(/arrow.svg)] bg-center bg-size-[cover] size-[20px] bg-no-repeat inline-block"></div>
-          </a>
+          </Link>
         </div>
         <ContactBar />
       </div>

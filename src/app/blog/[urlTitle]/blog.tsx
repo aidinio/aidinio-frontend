@@ -141,8 +141,8 @@ export function SuggestedPost({
   href: string;
 }) {
   return (
-    <div className="flex flex-col bg-white h-fit rounded-[35px] shadow-default w-fit">
-      <div className="p-[16px] flex flex-col items-center gap-[20px] w-fit">
+    <div className="flex flex-col bg-white rounded-[35px] shadow-default w-fit h-full">
+      <div className="p-[16px] flex flex-col h-full items-center gap-[20px] w-fit">
         <Image
           className="rounded-[20px] min-w-[350px]"
           src="/suggestion.jpg"
@@ -150,11 +150,13 @@ export function SuggestedPost({
           width={270}
           height={168}
         />
-        <div className="px-[19px] flex flex-col items-center gap-[16px] text-[15px] max-w-[350px]">
-          <h2 className="font-semibold text-[17px] self-start">{title}</h2>
-          <p className="text-justify self-start px-[10px] font-medium">
-            {description}
-          </p>
+        <div className="px-[19px] h-full flex flex-col items-center justify-between gap-[16px] text-[15px] max-w-[350px]">
+          <div className="flex flex-col gap-5">
+            <h2 className="font-semibold text-[17px] self-start">{title}</h2>
+            <p className="text-justify self-start px-[10px] font-medium">
+              {description}
+            </p>
+          </div>
           <Link
             href={href}
             className="mb-[10px] flex justify-center items-center gap-[20px] bg-gradient-to-r from-[#BAF7FFAA] via-[#FEFFBAAA] to-[#FFB2B2AA] rounded-full px-[20px] py-[14px] font-semibold"

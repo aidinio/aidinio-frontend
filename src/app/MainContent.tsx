@@ -19,7 +19,7 @@ export default function Page({ children }: { children: ReactNode }) {
         initial={{ translateY: 50, opacity: 0 }}
         animate={{ translateY: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: easeInOut }}
-        className="w-full h-full"
+        className="w-full h-full flex justify-center items-center"
       >
         {children}
       </motion.div>

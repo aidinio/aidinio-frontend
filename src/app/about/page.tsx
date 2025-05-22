@@ -15,7 +15,7 @@ import { ReactNode } from "react";
 export default function Page() {
   return (
     <div className="flex justify-center items-center gap-[50px] h-full">
-      <div className="flex flex-col bg-white rounded-[50px] py-[70px] px-[90px] gap-[65px]">
+      <div className="flex flex-col bg-white rounded-[50px] py-[70px] px-[90px] gap-[65px] max-w-[1000px] shadow-default">
         <div className="flex flex-col gap-[15px]">
             <div className="flex justify-between items-center">
               <h1 className="text-[64px] font-bold">

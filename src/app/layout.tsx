@@ -34,7 +34,7 @@ export default function RootLayout({
             </div>
             <div className="absolute left-[0px] top-[0px] rounded-full w-[100vw] h-[100vh] block filter-[url(#nnnoise-filter)] opacity-60"></div>
             <div className="relative p-10 z-10 w-[100vw] h-[100vh]">
-              <div className="flex items-center justify-stretch h-full gap-[60px]">
+              <div className="flex items-center justify-center h-full gap-[60px]">
                 <Navbar />
                 <MainContent>{children}</MainContent>
               </div>
