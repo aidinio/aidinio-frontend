@@ -21,6 +21,8 @@ export interface Image {
   formats: {
     thumbnail: ImageFormat;
     small: ImageFormat;
+    medium: ImageFormat;
+    large: ImageFormat;
   };
 }
 
@@ -46,4 +48,26 @@ export interface BlogPost {
 export interface BlogPostTag {
   label: string;
   blogPosts: BlogPost[];
+}
+
+export interface Technology {
+  label: string;
+  icon: string;
+}
+
+export interface PortfolioCategory {
+  id: number;
+  title: string;
+}
+
+export interface Portfolio {
+  id: number;
+  title: string;
+  urlTitle: string;
+  description: string;
+  liveLink: string;
+  technologyTags: Technology[];
+  previewPicture: Image;
+  images: Image[];
+  category: PortfolioCategory;
 }

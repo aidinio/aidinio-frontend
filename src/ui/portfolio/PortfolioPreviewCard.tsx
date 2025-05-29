@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { Technology } from "@/data/types";
-import { portfolioCategory } from "@/data/Portfolio";
+import { Technology } from "@/types/backend";
 import IconLabelBadge from "@/components/custom/IconLabelBadge";
 import Link from "next/link";
-import DynamicPhosphorIcon from "@/components/custom/DynamicIcon";
+import { PortfolioCategory } from "@/types/backend";
 
-export default function PortfolioPreviewCard({
+export default function PortfolioPrecategoryviewCard({
   imageSrc,
   imageAlt,
   category,
@@ -15,7 +14,7 @@ export default function PortfolioPreviewCard({
 }: {
   imageSrc: string;
   imageAlt: string;
-  category: portfolioCategory;
+  category: PortfolioCategory;
   title: string;
   technologies: Technology[];
   href: string;
@@ -31,7 +30,6 @@ export default function PortfolioPreviewCard({
           height="200"
         />
         <div className="rounded-tl-[20px] absolute bottom-0 right-0 flex gap-3 items-center justify-center bg-white p-3 shadow-default">
-          <DynamicPhosphorIcon icon={category.icon} />
           {category.title}
         </div>
       </div>
@@ -42,7 +40,7 @@ export default function PortfolioPreviewCard({
             <IconLabelBadge
               key={technology.icon}
               icon={technology.icon}
-              text={technology.text}
+              text={technology.label}
             />
           ))}
         </div>

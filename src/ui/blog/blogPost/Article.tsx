@@ -2,6 +2,7 @@ import Image from "next/image";
 import ArticleBody from "./ArticleBody";
 import { BlogPost } from "@/types/backend";
 import TextTag from "@/components/custom/TextTag";
+import { BASE } from "@/lib/client";
 
 export default function Article({ data }: { data: BlogPost }) {
   const { title, content, author, tags, createdAt } = data;
@@ -16,7 +17,7 @@ export default function Article({ data }: { data: BlogPost }) {
               className="rounded-full inline-block"
               width={40}
               height={40}
-              src={`http://localhost:1337${author.image.formats.thumbnail.url}`}
+              src={`${BASE}${author.image.formats.thumbnail.url}`}
               alt="profile picture"
             />
             <span>{author.name}</span>
@@ -29,7 +30,7 @@ export default function Article({ data }: { data: BlogPost }) {
         </div>
         <div className="flex flex-wrap gap-[15px]">
           {tags.map((tag) => (
-            <TextTag text={tag.label} key={tag.label} />
+            <TextTag label={tag.label} key={tag.label} />
           ))}
         </div>
         <div className="tracking-[3%] leading-[210%] text-justify text-[20px] font-medium">
