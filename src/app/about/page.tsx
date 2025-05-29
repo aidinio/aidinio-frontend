@@ -15,7 +15,7 @@ import { ReactNode } from "react";
 export default function Page() {
   return (
     <div className="flex justify-center items-center gap-[50px] h-full">
-      <div className="flex flex-col bg-white rounded-[50px] py-[70px] px-[90px] gap-[65px] max-w-[1000px] shadow-default">
+      <div className="flex flex-col bg-white rounded-[50px] py-[70px] px-[90px] gap-[65px] max-w-[1000px] shadow-default grow-0 shrink">
         <div className="flex flex-col gap-[15px]">
             <div className="flex justify-between items-center">
               <h1 className="text-[64px] font-bold">
@@ -81,7 +81,7 @@ export default function Page() {
         src={"/portrait.jpg"}
         width={575}
         height={575}
-        className="rounded-[60px] shadow-default w-fit h-fit"
+        className="rounded-[60px] shadow-default w-fit h-fit shrink-0 grow"
       />
     </div>
   );

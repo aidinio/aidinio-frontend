@@ -1,26 +1,22 @@
 "use client";
 
 import { Dispatch, SetStateAction, useContext, useState } from "react";
-import { Triangle, Circle, Spiral, Icon } from "@phosphor-icons/react";
+import { Triangle, Circle, Spiral } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import clsx from "clsx";
-import type { NavItem } from "@/app/data/types";
+import type { NavItem } from "@/data/types";
 import { createContext } from "react";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
-import { iconCache } from "./data/cache";
+import { iconCache } from "@/data/cache";
+import DynamicPhosphorIcon from "@/components/custom/DynamicIcon";
 
 const levelContext = createContext<number>(0);
 const openItemContext = createContext<{
   openItem: string | null;
   setOpenItem: Dispatch<SetStateAction<string | null>> | null;
 }>({ openItem: null, setOpenItem: null });
-
-export type PhosphorIcon = keyof Omit<
-  typeof import("@phosphor-icons/react/dist/ssr"),
-  "SSRBase"
->;
 
 export function NavbarItem({ data }: { data: NavItem }) {
   const [openItem, setOpenItem] = useState<string | null>(null);
@@ -35,47 +31,35 @@ export function NavbarItem2({ data }: { data: NavItem }) {
   const pathname = usePathname();
   const isActive = data.href === pathname;
   const level = useContext(levelContext);
-  const isInPath = pathname.split('/')[1] === data.href.split('/')[1].toLowerCase();
-  const [isHovered, setIsHovered] = useState(false);
-  const Icon = iconCache.has(data.icon)
-    ? iconCache.get(data.icon)
-    : dynamic(
-        () =>
-          import("@phosphor-icons/react").then((mod) => {
-            iconCache.set(data.icon, mod[data.icon]);
-            return mod[data.icon];
-          }),
-        {
-          ssr: false,
-          loading: () => (
-            <Spiral
-              size={20}
-              weight="bold"
-              className="animate-spin text-black"
-            />
-          ),
-        }
-      );
+  const isInPath =
+    pathname.split("/")[1] === data.href.split("/")[1].toLowerCase();
+  const [isHovered] = useState(false);
   return (
     <levelContext.Provider value={level + 1}>
       {level === 0 && (
-        <div className={clsx(" flex flex-col gap-3 px-[24px] py-[24px]", {
-          "shadow-default bg-white rounded-[24px]": isInPath
-        })}>
+        <div
+          className={clsx(
+            " flex flex-col gap-3 sm:px-[24px] py-[12px] sm:py-[24px]",
+            {
+              "sm:shadow-default sm:bg-white sm:rounded-[24px]": isInPath,
+            }
+          )}
+        >
           <div className="flex gap-3">
             <Link
               href={data.href}
               className={clsx(
-                "text-black hover:text-gray-500 transition-colors duration-200 flex gap-3",
+                "text-black hover:text-gray-500 transition-colors duration-200 flex items-center justify-center gap-1 sm:gap-3 text-xs sm:text-base",
                 { "font-bold": isActive }
               )}
             >
-              <Icon size={20} weight="bold" />
+              <DynamicPhosphorIcon icon={data.icon} ssr={false} />
               {data.label}
             </Link>
           </div>
 
-          {(isInPath || isHovered) && data.subItems &&
+          {(isInPath || isHovered) &&
+            data.subItems &&
             data.subItems?.map((item) => (
               <NavbarItem2 key={item.href} data={item} />
             ))}
@@ -105,33 +89,11 @@ export function SubItem({ data }: { data: NavItem }) {
       ? "closed"
       : "normal"
   );
-  const Icon = iconCache.has(data.icon)
-    ? iconCache.get(data.icon)
-    : dynamic(
-        () =>
-          import("@phosphor-icons/react").then((mod) => {
-            iconCache.set(data.icon, mod[data.icon]);
-            return mod[data.icon];
-          }),
-        {
-          ssr: false,
-          loading: () => (
-            <Spiral
-              size={20}
-              weight="bold"
-              className="animate-spin text-black"
-            />
-          ),
-        }
-      );
   return (
     <div className="flex flex-col gap-[15px]">
       <div className="flex items-center content-center gap-3">
         <Link href={data.href} className="flex gap-2 items-center">
-          <Icon
-            size={20}
-            weight={state === "selected" || isActive ? "bold" : undefined}
-          />
+        <DynamicPhosphorIcon icon={data.icon} ssr={false} />
           <span className={state === "selected" || isActive ? "font-bold" : ""}>
             {data.label}
           </span>

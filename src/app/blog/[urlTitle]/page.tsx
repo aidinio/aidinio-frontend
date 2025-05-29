@@ -1,5 +1,6 @@
-import Blog from "./blog";
-import { BlogPost, getPost } from "@/lib/client";
+import BlogPost from "../../../ui/blog/blogPost/BlogPost";
+import { getPost } from "@/lib/client";
+import type { BlogPost } from "@/types/backend";
 
 export default async function Page({
   params,
@@ -8,5 +9,5 @@ export default async function Page({
 }) {
   const { urlTitle } = await params;
   const blogPost: BlogPost = await getPost(urlTitle);
-  return <Blog data={blogPost} />;
+  return <BlogPost data={blogPost} />;
 }

@@ -1,0 +1,38 @@
+"use client";
+
+import { iconCache } from "@/data/cache";
+import { PhosphorIconName } from "@/data/types";
+import { Spiral } from "@phosphor-icons/react/dist/ssr";
+import dynamic from "next/dynamic";
+
+interface DynamicPhosphorIconProps extends React.ComponentProps<typeof Spiral> {
+  ssr?: boolean | undefined;
+  icon: PhosphorIconName;
+}
+
+export default function DynamicPhosphorIcon({
+  icon,
+  ssr = undefined,
+  ...props
+}: DynamicPhosphorIconProps) {
+  const Icon = iconCache.has(icon)
+    ? iconCache.get(icon)
+    : dynamic(
+        () =>
+          import("@phosphor-icons/react").then((mod) => {
+            iconCache.set(icon, mod[icon]);
+            return mod[icon];
+          }),
+        {
+          ssr: ssr,
+          loading: () => (
+            <Spiral
+              size={20}
+              weight="bold"
+              className="animate-spin text-black"
+            />
+          ),
+        }
+      );
+  return <Icon {...props} />;
+}

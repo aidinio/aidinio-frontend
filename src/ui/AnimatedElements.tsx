@@ -12,7 +12,6 @@ const classNames = [
   "absolute rounded-full bg-[#DCBAFF] size-[23vw] block",
   "absolute rounded-full bg-[#BAF7FF] size-[23vw] block",
   "absolute rounded-full bg-[#BAF7FF] size-[23vw] block",
-  //   "absolute rounded-full bg-[#DCBAFF] w-[600px] h-[600px] block",
 ];
 
 const elements = [
@@ -54,11 +53,11 @@ const AnimatedElements = () => {
     generateRandomPositions();
     const interval = setInterval(generateRandomPositions, 3000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, []);
 
   if (positions.length === 0) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return (
@@ -72,12 +71,6 @@ const AnimatedElements = () => {
             duration: 3,
             ease: "easeInOut",
           }}
-          //   style={{
-          //     width: '100px',
-          //     height: '100px',
-          //     backgroundColor: 'lightblue',
-          //     position: 'absolute',
-          //   }}
           className={`${classNames[index]} blur-[150px]`}
         ></motion.div>
       ))}

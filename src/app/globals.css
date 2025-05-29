@@ -5,6 +5,34 @@
 
 @theme {
     --shadow-default:  0 0 12px 1px rgba(195, 195, 195, 0.25);
+    --animate-move-in: move-in 1s ease-in-out both;
+    --animate-blur-out: blur-out 2s ease-in-out both;
+}
+
+@keyframes move-in {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+}
+
+@keyframes blur-out {
+    from {
+        opacity: 1;
+        filter: blur(0px);
+    }
+    to {
+        opacity: 0;
+        filter: blur(50px);
+    }
+}
+
+.meow {
+    clip-path: fill-box;
 }
 
 @theme inline {
