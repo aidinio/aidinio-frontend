@@ -1,3 +1,4 @@
+import { CarouselApi } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
 export default function useCarousel() {

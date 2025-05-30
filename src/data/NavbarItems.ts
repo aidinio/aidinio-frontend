@@ -1,6 +1,5 @@
 import { getPortfolioCategories, getPortfolios } from "@/lib/client";
-import { NavItem } from "./types";
-// import { portfolioCategories, portfolios } from "./Portfolio";
+import type { NavItem } from "@/types/navbar";
 
 const { data: portfolioCategories } = await getPortfolioCategories();
 const { data: portfolios } = await getPortfolios();

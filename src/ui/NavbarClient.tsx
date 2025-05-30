@@ -1,15 +1,13 @@
 "use client";
 
 import { Dispatch, SetStateAction, useContext, useState } from "react";
-import { Triangle, Circle, Spiral } from "@phosphor-icons/react";
+import { Triangle, Circle } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
 import clsx from "clsx";
-import type { NavItem } from "@/data/types";
+import type { NavItem } from "@/types/navbar";
 import { createContext } from "react";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
-import { iconCache } from "@/data/cache";
 import DynamicPhosphorIcon from "@/components/custom/DynamicIcon";
 
 const levelContext = createContext<number>(0);
@@ -53,7 +51,7 @@ export function NavbarItem2({ data }: { data: NavItem }) {
                 { "font-bold": isActive }
               )}
             >
-              <DynamicPhosphorIcon icon={data.icon} ssr={false} />
+              <DynamicPhosphorIcon weight={"bold"} icon={data.icon} ssr={false} />
               {data.label}
             </Link>
           </div>
@@ -75,7 +73,6 @@ export function NavbarItem2({ data }: { data: NavItem }) {
 }
 
 export function SubItem({ data }: { data: NavItem }) {
-  const level = useContext(levelContext);
   const pathname = usePathname();
   const { openItem, setOpenItem } = useContext(openItemContext);
   const isActive = pathname === data.href;
@@ -93,7 +90,7 @@ export function SubItem({ data }: { data: NavItem }) {
     <div className="flex flex-col gap-[15px]">
       <div className="flex items-center content-center gap-3">
         <Link href={data.href} className="flex gap-2 items-center">
-        <DynamicPhosphorIcon icon={data.icon} ssr={false} />
+        <DynamicPhosphorIcon weight={"bold"} icon={data.icon} ssr={false} />
           <span className={state === "selected" || isActive ? "font-bold" : ""}>
             {data.label}
           </span>
