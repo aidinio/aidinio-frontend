@@ -1,9 +1,7 @@
 import type { Portfolio } from "@/types/backend";
 import AdditionalInfo from "@/ui/portfolio/portfolioItem/AdditionalInfo";
 import Description from "@/ui/portfolio/portfolioItem/Description";
-import PreviewPicture from "@/ui/portfolio/portfolioItem/PreviewPicture";
 import Blobs from "@/ui/portfolio/portfolioItem/Blobs";
-import { BASE } from "@/lib/client";
 import ImageGallery from "./ImageGallery";
 
 export default function PortfolioItem({ data }: { data: Portfolio }) {

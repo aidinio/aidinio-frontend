@@ -1,4 +1,4 @@
-import ContactBar from "../ui/home/ContactBar";
+import ContactBar from "@/ui/home/ContactBar";
 import PortraitCard from "@/ui/home/PortraitCard";
 import AboutCard from "@/ui/home/AboutCard";
 

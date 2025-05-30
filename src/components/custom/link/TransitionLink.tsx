@@ -1,7 +1,7 @@
 "use client";
 
 import Link, { LinkProps } from "next/link";
-import { ReactNode, useCallback, useEffect } from "react";
+import { ReactNode, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface TransitionLinkProps extends LinkProps {
@@ -27,16 +27,11 @@ export default function TransitionLink({
     },
     [searchParams]
   )
-  useEffect(() => {
-    console.log(`[!] ${pathname}`);
-  }, [pathname, router]);
-
   const handleTransition = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     e.preventDefault();
     router.replace(pathname+"?"+createQueryString("loading", href))
-    // await new Promise(resolve => setTimeout(resolve, 2000));
     router.push(href);
   };
   return (

@@ -1,9 +1,9 @@
 import { Image as ImageType } from "@/types/backend";
-import Image from "next/image"
+import Image from "next/image";
 import PreviewPicture from "./PreviewPicture";
 import { BASE } from "@/lib/client";
 
-export default function ImageGallery({images}: {images: ImageType[]}) {
+export default function ImageGallery({ images }: { images: ImageType[] }) {
   return (
     <>
       <div className="rounded-[50px] shadow-xl overflow-hidden">

@@ -16,7 +16,6 @@ export async function getPosts() {
     },
   });
   const { data }: { data: BlogPost[] } = await res.json();
-  // console.log(data[0].content[0]);
   return { data };
 }
 

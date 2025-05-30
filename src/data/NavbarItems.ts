@@ -1,5 +1,9 @@
+import { getPortfolioCategories, getPortfolios } from "@/lib/client";
 import { NavItem } from "./types";
-import { portfolioCategories, portfolios } from "./Portfolio";
+// import { portfolioCategories, portfolios } from "./Portfolio";
+
+const { data: portfolioCategories } = await getPortfolioCategories();
+const { data: portfolios } = await getPortfolios();
 
 export const navItems: NavItem[] = [
   { icon: "House", label: "Home", href: "/" },
@@ -7,29 +11,18 @@ export const navItems: NavItem[] = [
     icon: "Cube",
     label: "Portfolio",
     href: "/portfolio",
-    subItems: [
-      ...Object.keys(portfolioCategories).map((categoryName) => ({
-        icon: portfolioCategories[categoryName].icon,
-        label: portfolioCategories[categoryName].title,
-        href: encodeURI(
-          `/portfolio/${encodeURIComponent(
-            portfolioCategories[categoryName].title
-          )}`
-        ),
-        subItems: portfolios
-          .filter(
-            (portfolio) =>
-              portfolio.category === portfolioCategories[categoryName].title
-          )
-          .map((portfolio) => {
-            return {
-              icon: portfolioCategories[categoryName].icon,
-              label: portfolio.title,
-              href: `/portfolio/item/${portfolio.id}`,
-            };
-          }),
-      })),
-    ],
+    subItems: portfolioCategories.map((category) => ({
+      icon: "Folder",
+      label: category.title,
+      href: `/portfolio?category=${category.title}`,
+      subItems: portfolios
+        .filter((portfolio) => portfolio.category.id === category.id)
+        .map((portfolio) => ({
+          icon: "File",
+          label: portfolio.title,
+          href: `/portfolio/${portfolio.urlTitle}`,
+        })),
+    })),
   },
   { icon: "User", label: "About Me", href: "/about" },
   { icon: "Article", label: "Blog", href: "/blog" },

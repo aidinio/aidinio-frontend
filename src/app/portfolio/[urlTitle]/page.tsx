@@ -1,4 +1,4 @@
-import Portfolio from "../../../ui/portfolio/portfolioItem/PortfolioItem";
+import Portfolio from "@/ui/portfolio/portfolioItem/PortfolioItem";
 import { getPortfolio } from "@/lib/client";
 
 export default async function Page({ params }: { params: Promise<{urlTitle: string}>}) {
