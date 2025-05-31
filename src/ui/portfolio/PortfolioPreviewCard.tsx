@@ -34,7 +34,7 @@ export default function PortfolioPrecategoryviewCard({
         </div>
       </div>
       <div className="flex flex-col justify-between h-full px-[30px] py-[20px] gap-4">
-        <h2 className="text-[32px] font-bold m-0">{title}</h2>
+        <h2 className="text-[2rem] font-bold m-0">{title}</h2>
         <div className="flex flex-wrap gap-3">
           {technologies.map((technology) => (
             <IconLabelBadge
@@ -46,7 +46,7 @@ export default function PortfolioPrecategoryviewCard({
         </div>
         <Link
           href={href}
-          className="text-[20px] font-bold text-white bg-black rounded-[25px] flex items-center justify-center py-[17px] mt-5"
+          className="text-[1.25rem] font-bold text-white bg-black rounded-[25px] flex items-center justify-center py-[17px] mt-5"
         >
           View
         </Link>

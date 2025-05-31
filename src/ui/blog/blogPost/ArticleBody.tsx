@@ -12,17 +12,17 @@ export default function ArticleBody({ content }: { content: BlocksContent }) {
           heading: ({ children, level }) => {
             switch (level) {
               case 1:
-                return <h1 className="font-extrabold text-[32px]">{children}</h1>;
+                return <h1 className="font-extrabold text-[2rem]">{children}</h1>;
               case 2:
-                return <h2 className="font-bold text-[28px]">{children}</h2>;
+                return <h2 className="font-bold text-[1.75rem]">{children}</h2>;
               case 3:
-                return <h3 className="font-bold text-[24px]">{children}</h3>;
+                return <h3 className="font-bold text-[1.5rem]">{children}</h3>;
               case 4:
-                return <h4 className="font-bold text-[20px]">{children}</h4>;
+                return <h4 className="font-bold text-[1.25rem]">{children}</h4>;
               case 5:
-                return <h5 className="font-bold text-[20px]">{children}</h5>;
+                return <h5 className="font-bold text-[1.25rem]">{children}</h5>;
               case 6:
-                return <h6 className="font-bold text-[20px]">{children}</h6>;
+                return <h6 className="font-bold text-[1.25rem]">{children}</h6>;
             }
           },
           link: ({ children, url }) => (

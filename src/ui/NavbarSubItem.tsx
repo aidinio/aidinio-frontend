@@ -72,7 +72,7 @@ export default function NavbarSubItem({ data }: { data: NavItem }) {
                 height: "auto",
                 width: "auto",
                 display: "flex",
-                marginLeft: "1rem",
+                marginLeft: "16px",
                 marginTop: "0px",
               }}
               exit={{

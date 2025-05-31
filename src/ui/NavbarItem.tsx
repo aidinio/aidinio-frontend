@@ -20,7 +20,7 @@ export function NavbarItem({ data }: { data: NavItem }) {
     <OpenItemContext.Provider value={{ openItem, setOpenItem }}>
       <div
         className={clsx(
-          " flex flex-col gap-3 sm:px-[24px] py-[12px] sm:py-[24px]",
+          " flex flex-col gap-3 sm:px-[1.5rem] py-[1rem] sm:py-[1.5rem]",
           {
             "sm:shadow-default sm:bg-white sm:rounded-[24px]": isInPath,
           }
@@ -30,7 +30,7 @@ export function NavbarItem({ data }: { data: NavItem }) {
           <Link
             href={data.href}
             className={clsx(
-              "text-black hover:text-gray-500 transition-colors duration-200 flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base",
+              "text-black hover:text-gray-500 transition-colors duration-200 flex items-center justify-center gap-1 sm:gap-2 text-sm md:text-base",
               { "font-bold": isActive }
             )}
           >

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AnimatedElements from "@/ui/AnimatedElements";
-import Navbar from "@/ui/home/Navbar";
+import Navbar from "@/ui/Navbar";
 import FilterDefinitions from "@/components/custom/FilterDefinitions";
 
 const inter = Inter({
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className=" text-[12px] sm:text-[14px] md:text-[14px] lg:text-[16px]">
       <body
         className={`${inter.className} antialiased selection:bg-[#b48de1] selection:text-white`}
       >
@@ -29,8 +29,8 @@ export default function RootLayout({
         <div className="bg-white sm:rounded-[55px] absolute top-0 left-0 w-[100vw] h-[100vh] p-0 overflow-hidden">
           <div className="relative z-10 h-full overflow-scroll">
             <FilterDefinitions />
-            <div className="blur-[150px] absolute left-[0px] top-[0px] w-[100vw] h-[100vh] meow">
-              <div className="filter-[url(#goo)] rounded-full overflow-hidden">
+            <div className="blue-[50px] sm:blur-[150px] absolute left-[0px] top-[0px] w-[100vw] h-[100vh] meow">
+              <div className="filter-[url(#goo)] overflow-hidden">
                 <AnimatedElements />
               </div>
             </div>

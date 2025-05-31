@@ -13,7 +13,7 @@ export default function PortraitCard({
       src={src}
       width={575}
       height={575}
-      className="sm:rounded-[60px] sm:shadow-default"
+      className="-mt-14 sm:mt-0 max-w-[min(33rem,100vw)] rounded-b-[30px] sm:rounded-[60px] shadow-default"
     />
   );
 }

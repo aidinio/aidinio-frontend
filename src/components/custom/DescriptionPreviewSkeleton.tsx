@@ -5,7 +5,7 @@ export default function Loading() {
       <div className="flex flex-col bg-white h-fit rounded-[35px] shadow-default w-fit">
         <div className="p-[16px] flex flex-col items-center gap-[20px] w-fit">
           <Skeleton className="w-[350px] h-[200px] rounded-[30px]" />
-          <div className="px-[19px] flex flex-col items-center gap-[16px] text-[15px] max-w-[350px]">
+          <div className="px-[19px] flex flex-col items-center gap-[16px] text-[1rem] max-w-[350px]">
             <div className="gap-2 flex flex-col items-start justify-start">
               <Skeleton className="w-[300px] h-[25px] rounded-[30px]" />
               <Skeleton className="w-[150px] h-[25px] rounded-[30px]" />

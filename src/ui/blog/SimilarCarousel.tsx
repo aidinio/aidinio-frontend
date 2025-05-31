@@ -17,7 +17,7 @@ export default function SimilarCarousel({
   const { setApi, canPrev, canNext } = useCarousel();
   return (
     <div className="flex flex-col gap-[40px]">
-      <h1 className="text-[36px] font-bold">Similar Articles</h1>
+      <h1 className="text-[2.25rem] font-bold">Similar Articles</h1>
       <Carousel
         opts={{ dragFree: true }}
         setApi={setApi}

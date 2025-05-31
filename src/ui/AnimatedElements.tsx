@@ -14,17 +14,6 @@ const classNames = [
   "absolute rounded-full bg-[#BAF7FF] size-[23vw] block",
 ];
 
-const elements = [
-  { dim: 600 },
-  { dim: 550 },
-  { dim: 500 },
-  { dim: 500 },
-  { dim: 450 },
-  { dim: 450 },
-  { dim: 450 },
-  { dim: 450 },
-];
-
 const getQuadraticExtremeRandom = () => {
   const randomValue = Math.random();
   return randomValue < 0.5
@@ -33,6 +22,19 @@ const getQuadraticExtremeRandom = () => {
 };
 
 const AnimatedElements = () => {
+  const [elements, setElements] = useState<{ dim: number }[]>([]);
+  useEffect(() => {
+    setElements([
+      { dim: 0.31 * window.innerWidth },
+      { dim: 0.28 * window.innerWidth },
+      { dim: 0.26 * window.innerWidth },
+      { dim: 0.26 * window.innerWidth },
+      { dim: 0.23 * window.innerWidth },
+      { dim: 0.23 * window.innerWidth },
+      { dim: 0.23 * window.innerWidth },
+      { dim: 0.23 * window.innerWidth },
+    ]);
+  }, []);
   const [positions, setPositions] = useState<{ x: number; y: number }[]>([]);
   useEffect(() => {
     const getRandomPosition = (dim: number) => ({
@@ -54,14 +56,21 @@ const AnimatedElements = () => {
     const interval = setInterval(generateRandomPositions, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [elements]);
 
   if (positions.length === 0) {
     return null;
   }
 
   return (
-    <div style={{ position: "relative", overflow: "hidden", height: "100vh" }}>
+    <div
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
       {elements.map((_, index) => (
         <motion.div
           key={index}

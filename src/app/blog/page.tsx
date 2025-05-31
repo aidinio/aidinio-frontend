@@ -7,7 +7,7 @@ export default function Page() {
     <div className="flex items-center justify-center">
       <div className="w-full max-w-[1920px] h-fit bg-white rounded-[50px] p-[75px] box-border relative shadow-default self-center">
         <div className="flex gap-10">
-          <h1 className="text-[64px] font-black">Blog Posts</h1>
+          <h1 className="text-[4rem] font-black">Blog Posts</h1>
           <div className="flex items-center justify-center gap-5"></div>
         </div>
         <div className="grid gap-x-10 gap-y-10 grid-cols-[repeat(3,1fr)] justify-items-center mt-10">

@@ -18,7 +18,7 @@ export default function Page() {
       <div className="flex flex-col bg-white rounded-[50px] py-[70px] px-[90px] gap-[65px] max-w-[1000px] shadow-default grow-0 shrink">
         <div className="flex flex-col gap-[15px]">
             <div className="flex justify-between items-center">
-              <h1 className="text-[64px] font-bold">
+              <h1 className="text-[4rem] font-bold">
                 {"Hi, I'm"}{" "}
                 <span className="bg-gradient-to-r from-[#DCBAFF] to-[#FFA4A4] bg-clip-text text-transparent">
                   Aidin!
@@ -26,12 +26,12 @@ export default function Page() {
               </h1>
               <a
                 href="#"
-                className="flex items-center justify-center rounded-[20px] font-semibold text-[16px] gap-[10px] bg-gradient-to-r to-50%  from-[#B3B8E9] to-[#FFD9F0] px-[30px] py-[18px] shadow-lg"
+                className="flex items-center justify-center rounded-[20px] font-semibold text-[1rem] gap-[10px] bg-gradient-to-r to-50%  from-[#B3B8E9] to-[#FFD9F0] px-[30px] py-[1.125rem] shadow-lg"
               >
                 Resume <DownloadSimple size={22} weight="bold" />
               </a>
             </div>
-            <div className="leading-[160%] font-medium text-[20px]">
+            <div className="leading-[160%] font-medium text-[1.25rem]">
               <p className="">
                 I am a programmer currently focused on design and development of
                 beautiful, functional frontends. I implement my designs with React
@@ -89,7 +89,7 @@ export default function Page() {
 
 function SkillBadge({ icon, text }: { icon: string; text: string }) {
   return (
-    <div className="flex gap-[10px] items-center bg-white px-[15px] py-[10px] text-[16px] font-semibold w-fit shadow-[0px_3px_6px_0px_#e8e8e8] rounded-[20px]">
+    <div className="flex gap-[10px] items-center bg-white px-[15px] py-[10px] text-[1rem] font-semibold w-fit shadow-[0px_3px_6px_0px_#e8e8e8] rounded-[20px]">
       <Icon icon={icon} width={22} height={22} />
       <span>{text}</span>
     </div>
@@ -125,7 +125,7 @@ function SkillCollection({
 }) {
   return (
     <div className="flex flex-col w-fit gap-[15px]">
-      <h1 className="font-semibold text-[24px]">{title}</h1>
+      <h1 className="font-semibold text-[1.5rem]">{title}</h1>
       <div className="flex flex-wrap w-fit gap-[10px]">{children}</div>
     </div>
   );

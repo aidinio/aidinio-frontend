@@ -24,9 +24,9 @@ export default function DescriptionPreview({
           width={270}
           height={168}
         />
-        <div className="px-[19px] h-full flex flex-col items-center justify-between gap-[16px] text-[15px] max-w-[350px]">
+        <div className="px-[19px] h-full flex flex-col items-center justify-between gap-[16px] text-[1rem] max-w-[350px]">
           <div className="flex flex-col gap-5">
-            <h2 className="font-semibold text-[17px] self-start">{title}</h2>
+            <h2 className="font-semibold text-[1rem] self-start">{title}</h2>
             <p className="text-justify self-start px-[10px] font-medium">
               {description}
             </p>
