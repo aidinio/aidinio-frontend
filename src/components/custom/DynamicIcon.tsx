@@ -1,13 +1,13 @@
 "use client";
 
 import { iconCache } from "@/data/cache";
-import { PhosphorIconName } from "@/data/types";
+import { PhosphorIcon } from "@/types/PhosphorIcon";
 import { Spiral } from "@phosphor-icons/react/dist/ssr";
 import dynamic from "next/dynamic";
 
 interface DynamicPhosphorIconProps extends React.ComponentProps<typeof Spiral> {
   ssr?: boolean | undefined;
-  icon: PhosphorIconName;
+  icon: PhosphorIcon;
 }
 
 export default function DynamicPhosphorIcon({
