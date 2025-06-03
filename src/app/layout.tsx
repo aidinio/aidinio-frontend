@@ -29,16 +29,17 @@ export default function RootLayout({
         <div className="bg-white sm:rounded-[55px] absolute top-0 left-0 w-[100vw] h-[100vh] p-0 overflow-hidden">
           <div className="relative z-10 h-full overflow-scroll">
             <FilterDefinitions />
-            <div className="blue-[50px] sm:blur-[150px] absolute left-[0px] top-[0px] w-[100vw] h-[100vh] meow">
+            <div className="blur-[50px] sm:blur-[150px] fixed sm:absolute left-[0px] top-[0px] w-[100vw] h-[100vh] meow">
               <div className="filter-[url(#goo)] overflow-hidden">
                 <AnimatedElements />
               </div>
             </div>
-            <div className="absolute rounded-[100px] left-[0px] top-[0px] w-[100vw] h-[100vh] block filter-[url(#nnnoise-filter)] resize-none opacity-60" />
+            <div className="fixed sm:absolute rounded-[100px] left-[0px] top-[0px] w-[100vw] h-[100vh] block filter-[url(#nnnoise-filter)] resize-none opacity-60" />
             <div className="relative sm:p-10 z-10 w-[100vw] h-[100vh]">
-              <div className="flex items-center justify-center h-full gap-[60px]">
+              <div className="flex flex-col sm:flex-row items-center justify-center h-full sm:gap-[60px]">
+                {/* <Navbar hidden={true} /> */}
                 <Navbar />
-                <div className="w-full h-full flex justify-center items-start fade-in-15 ease-in-out duration-1000 animate-move-in">
+                <div className="w-full h-full flex justify-center items-start fade-in-15 ease-in-out duration-1000 animate-move-in sm:mt-0 mt-[6rem]">
                   {children}
                 </div>
               </div>

@@ -29,10 +29,10 @@ export default function NavbarSubItem({ data }: { data: NavItem }) {
   );
   return (
     <LevelContext.Provider value={level + 1}>
-      <div className="flex flex-col gap-[15px] ml-0">
+      <div className="hidden sm:flex flex-col gap-[15px] ml-0">
         <div className="flex items-center content-center gap-3 ml-4">
           <Link href={data.href} className="flex gap-2 items-center">
-            <DynamicPhosphorIcon weight={"bold"} icon={data.icon} ssr={false} />
+            <DynamicPhosphorIcon fontSize={"1rem"} weight={"bold"} icon={data.icon} ssr={false} />
             <span className={isActive ? "font-bold" : ""}>{data.label}</span>
           </Link>
           <div

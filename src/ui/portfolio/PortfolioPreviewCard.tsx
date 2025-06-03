@@ -20,7 +20,7 @@ export default function PortfolioPrecategoryviewCard({
   href: string;
 }) {
   return (
-    <div className="flex flex-col rounded-[30px] shadow-default max-w-[425px]">
+    <div className="flex flex-col rounded-[30px] shadow-default max-w-[425px] bg-white">
       <div className="overflow-hidden rounded-t-[30px] relative">
         <Image
           className="w-full"
