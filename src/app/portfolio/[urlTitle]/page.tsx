@@ -17,7 +17,7 @@ export default async function Page({
     <>
       <div className="hidden sm:block w-full h-full bg-white rounded-[50px] sm:overflow-hidden p-[75px] box-border relative shadow-default">
         {/* <Blobs /> */}
-        <div className="sm:grid grid-cols-[62fr_38fr] grid-rows-[minmax(auto,62fr)_48fr] gap-x-[40px] gap-y-[30px] h-full box-border z-20 relative">
+        <div className="grid grid-cols-[62fr_38fr] grid-rows-[minmax(auto,62fr)_48fr] gap-x-[40px] gap-y-[30px] h-full box-border z-20 relative">
           <ImageGallery images={portfolio.images} />
           <Description title={portfolio.title}>
             {portfolio.description}

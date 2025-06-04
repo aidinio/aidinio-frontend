@@ -13,8 +13,7 @@ import {
 export default function ImageGallery({ images }: { images: ImageType[] }) {
   return (
     <>
-      <div className="hidden sm:block">
-        <div className="rounded-[50px] shadow-xl overflow-hidden">
+        <div className="hidden sm:block rounded-[50px] shadow-xl overflow-hidden">
           <Image
             src={`${BASE}${images[0].formats.medium.url}`}
             width={769}
@@ -23,7 +22,7 @@ export default function ImageGallery({ images }: { images: ImageType[] }) {
             alt="portfolio picture"
           />
         </div>
-        <div className="flex flex-col sm:grid grid-cols-2 grid-rows-3 gap-x-[30px] gap-y-[10px]">
+        <div className="hidden sm:grid grid-cols-2 grid-rows-3 gap-x-[30px] gap-y-[10px]">
           {images.map((image) => (
             <PreviewPicture
               key={image.id}
@@ -31,7 +30,6 @@ export default function ImageGallery({ images }: { images: ImageType[] }) {
             />
           ))}
         </div>
-      </div>
       <div className="block w-[100vw] sm:hidden mt-10">
         <Carousel className="flex flex-col">
           <CarouselContent>

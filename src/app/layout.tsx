@@ -37,9 +37,9 @@ export default function RootLayout({
             <div className="fixed sm:absolute rounded-[100px] left-[0px] top-[0px] w-[100vw] h-[100vh] block filter-[url(#nnnoise-filter)] resize-none opacity-60" />
             <div className="relative sm:p-10 z-10 w-[100vw] h-[100vh]">
               <div className="flex flex-col sm:flex-row items-center justify-center h-full sm:gap-[60px]">
-                {/* <Navbar hidden={true} /> */}
+                {/* <div className="w-full h-[15rem] opacity-0" /> */}
                 <Navbar />
-                <div className="w-full h-full flex justify-center items-start fade-in-15 ease-in-out duration-1000 animate-move-in sm:mt-0 mt-[6rem]">
+                <div className="w-full h-full flex justify-center items-start fade-in-15 ease-in-out duration-1000 animate-move-in sm:mt-0 mt-[12rem]">
                   {children}
                 </div>
               </div>
