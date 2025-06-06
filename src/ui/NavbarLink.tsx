@@ -19,7 +19,7 @@ export default function NavbarLink({
   return hidden ? (
     <span className={`${className} cursor-default`}>
       <DynamicPhosphorIcon
-        fontSize={"1rem"}
+        fontSize={"1.1rem"}
         weight={isActive ? "bold" : "regular"}
         icon={data.icon}
         ssr={false}
@@ -29,7 +29,7 @@ export default function NavbarLink({
   ) : (
     <Link href={data.href} className={className}>
       <DynamicPhosphorIcon
-        fontSize={"1rem"}
+        fontSize={"1.1rem"}
         weight={isActive ? "bold" : "regular"}
         icon={data.icon}
         ssr={false}

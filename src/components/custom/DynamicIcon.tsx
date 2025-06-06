@@ -27,9 +27,8 @@ export default function DynamicPhosphorIcon({
           ssr: ssr,
           loading: () => (
             <Spiral
-              size={20}
-              weight="bold"
               className="animate-spin text-black"
+              {...props}
             />
           ),
         }

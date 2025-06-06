@@ -3,9 +3,7 @@ import PrimaryLink from "@/components/custom/link/PrimaryLink";
 import ContactItem from "@/ui/about/ContactItem";
 import SkillBadge from "@/ui/about/SkillBadge";
 import SkillCollection from "@/ui/about/SkillCollection";
-import AboutCard from "@/ui/home/AboutCard";
 import PortraitCard from "@/ui/home/PortraitCard";
-import { Download } from "@phosphor-icons/react/dist/ssr";
 import {
   DownloadSimple,
   Envelope,
@@ -98,7 +96,7 @@ export default function Page() {
           className="rounded-[60px] shadow-default w-fit h-fit shrink-0 grow"
         />
       </div>
-
+      {/* Mobile version */}
       <div className="flex sm:hidden flex-col sm:flex-row items-center gap-[1.5rem] sm:gap-[2rem]">
         <PortraitCard alt={"Aidin's portrait"} src="/portrait.jpg" />
         <div className="sm:size-[36rem] w-[80vw] max-w-[27rem] sm:max-w-none bg-white rounded-[40px] sm:rounded-[60px] flex -mt-[7rem] sm:mt-0 flex-col gap-[1.875rem] items-center justify-between py-[2.75rem] sm:py-[65px] px-[40px] sm:px-[5rem] drop-shadow-[10px_10px_0_0_rgba(0,0,0,1)] shadow-default">

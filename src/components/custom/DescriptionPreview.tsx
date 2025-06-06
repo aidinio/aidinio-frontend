@@ -15,18 +15,18 @@ export default function DescriptionPreview({
   imageAlt: string;
 }) {
   return (
-    <div className="flex flex-col bg-white rounded-[35px] shadow-default w-fit h-full">
-      <div className="p-[16px] flex flex-col h-full items-center gap-[20px] w-fit">
+    <div className="flex flex-col bg-white rounded-[35px] shadow-default h-full">
+      <div className="p-[1rem] flex flex-col h-full items-center gap-[20px]">
         <Image
-          className="rounded-[20px] min-w-[350px]"
+          className="rounded-[20px] w-full min-w-[300px]"
           src={imageSrc}
           alt={imageAlt}
           width={270}
           height={168}
         />
-        <div className="px-[19px] h-full flex flex-col items-center justify-between gap-[16px] text-[1rem] max-w-[350px]">
+        <div className="px-[19px] h-full flex flex-col items-center justify-between gap-[16px] text-[1.2] max-w-[350px]">
           <div className="flex flex-col gap-5">
-            <h2 className="font-semibold text-[1rem] self-start">{title}</h2>
+            <h2 className="font-bold text-[1.3rem] self-start">{title}</h2>
             <p className="text-justify self-start px-[10px] font-medium">
               {description}
             </p>
