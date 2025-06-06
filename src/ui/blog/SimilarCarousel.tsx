@@ -1,3 +1,5 @@
+"use client"
+
 import DescriptionPreview from "@/components/custom/DescriptionPreview";
 import {
   Carousel,
@@ -18,7 +20,7 @@ export default function SimilarCarousel({
 }) {
   const { setApi, canPrev, canNext } = useCarousel();
   return (
-    <div className={`flex flex-col gap-[40px] ${className}`}>
+    <div className={`flex flex-col gap-[2.5rem] ${className}`}>
       <h3 className="text-[2.25rem] font-bold">Similar Articles</h3>
       <Carousel
         opts={{ dragFree: true }}

@@ -1,3 +1,5 @@
+"use client"
+
 import { CarouselApi } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
