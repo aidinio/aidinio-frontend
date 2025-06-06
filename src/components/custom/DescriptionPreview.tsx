@@ -15,10 +15,10 @@ export default function DescriptionPreview({
   imageAlt: string;
 }) {
   return (
-    <div className="flex flex-col bg-white rounded-[35px] shadow-default h-full">
+    <div className="flex flex-col bg-white rounded-[2.25rem] shadow-default h-full">
       <div className="p-[1rem] flex flex-col h-full items-center gap-[20px]">
         <Image
-          className="rounded-[20px] w-full min-w-[300px]"
+          className="rounded-[1.25rem] w-full min-w-[min(90vw,300px)]"
           src={imageSrc}
           alt={imageAlt}
           width={270}

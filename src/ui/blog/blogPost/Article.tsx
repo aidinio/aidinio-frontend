@@ -8,9 +8,9 @@ export default function Article({ data }: { data: BlogPost }) {
   const { title, content, author, tags, createdAt } = data;
   const parsedDate = new Date(createdAt);
   return (
-    <article className="flex flex-col gap-[32px] z-30 relative h-full">
+    <article className="flex flex-col gap-[32px] z-30 relative h-full max-w-[90vw]">
       <h1 className="text-[2.5rem] font-extrabold text-justify">{title}</h1>
-      <div className="flex flex-col gap-[32px] px-[60px] h-full">
+      <div className="flex flex-col gap-[32px] sm:px-[3.75rem] h-full">
         <div className="flex justify-between items-center text-[#7E7E7E] font-medium text-[1rem]">
           <div className="flex gap-4 items-center justify-center">
             <Image
