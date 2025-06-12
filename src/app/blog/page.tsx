@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-import DescriptionPreviewSkeleton from "@/components/custom/DescriptionPreviewSkeleton";
 import BlogPostsList from "@/ui/blog/BlogPostsList";
 import MobileHeading from "@/components/custom/MobileHeading";
 
@@ -13,17 +11,7 @@ export default function Page() {
             <div className="flex items-center justify-center gap-5"></div>
           </div>
           <div className="flex flex-wrap sm:grid gap-x-10 gap-y-10 grid-cols-[repeat(3,1fr)] justify-items-center mt-10">
-            <Suspense
-              fallback={
-                <>
-                  {[0, 1, 2, 3, 4, 5].map((item) => (
-                    <DescriptionPreviewSkeleton key={item} />
-                  ))}
-                </>
-              }
-            >
               <BlogPostsList />
-            </Suspense>
           </div>
         </div>
       </div>

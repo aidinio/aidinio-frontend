@@ -25,9 +25,9 @@ export function NavbarItem({
     <OpenItemContext.Provider value={{ openItem, setOpenItem }}>
       <div
         className={clsx(
-          " flex flex-col gap-3 sm:px-[1.5rem] py-[1rem] sm:py-[1.5rem] font-medium",
+          " flex flex-col gap-3 md:px-[1.5rem] py-[1rem] md:py-[1.5rem] font-medium",
           {
-            "sm:shadow-default sm:bg-white sm:rounded-[24px]": isInPath,
+            "md:shadow-default md:bg-white md:rounded-[24px]": isInPath,
           }
         )}
       >

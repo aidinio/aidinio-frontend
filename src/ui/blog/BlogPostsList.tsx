@@ -2,7 +2,6 @@ import DescriptionPreview from "@/components/custom/DescriptionPreview";
 import { getPosts } from "@/lib/client";
 
 export default async function BlogPostsList() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   const { data: posts } = await getPosts();
   return (
     <>

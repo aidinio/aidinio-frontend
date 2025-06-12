@@ -7,7 +7,7 @@ import {
 
 export default function ContactBar() {
   return (
-    <div className="flex sm:flex-col gap-[1rem]">
+    <div className="flex md:flex-col gap-[1rem]">
       <IconCard Icon={GithubLogo} href="#" />
       <IconCard Icon={LinkedinLogo} href="#" />
       <IconCard Icon={Envelope} href="#" />

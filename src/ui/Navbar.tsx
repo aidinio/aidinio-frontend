@@ -6,8 +6,8 @@ export default async function Navbar({ hidden }: { hidden?: boolean }) {
   return (
     <ul
       className={clsx(
-        `z-30 shadow-default sm:shadow-none fixed bg-white sm:bg-transparent h-fit rounded-full px-[2.4rem] py-[5px] sm:py-0 sm:px-0 sm:rounded-none top-9 flex sm:flex-col gap-8 sm:gap-5 sm:h-full items-start justify-center justify-self-start shrink-0 sm:sticky`,
-        { "sm:hidden static opacity-0 mt-9": hidden }
+        `grow-[0] justify-self-start z-30 shadow-default md:shadow-none fixed bg-white md:bg-transparent h-fit rounded-full px-[2.4rem] py-[5px] md:py-0 md:px-0 md:rounded-none top-9 flex md:flex-col gap-8 md:gap-5 md:h-full items-start justify-center shrink-0 md:sticky`,
+        { "md:hidden static opacity-0 mt-9": hidden }
       )}
     >
       {navItems.map((item) => (

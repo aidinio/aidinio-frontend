@@ -13,7 +13,7 @@ export default function NavbarLink({
   isActive: boolean;
 }) {
   const className = clsx(
-    "text-black hover:text-gray-500 transition-colors duration-200 flex items-center justify-center gap-2 sm:gap-2  text-[1rem] md:text-base",
+    "text-black hover:text-gray-500 transition-colors duration-200 flex items-center justify-center gap-2 md:gap-2  text-[1rem] md:text-base",
     { "font-bold": isActive }
   );
   return hidden ? (

@@ -17,10 +17,17 @@ import Link from "next/link";
 export default function Page() {
   return (
     <>
-      <div className="hidden sm:flex justify-center items-center gap-[50px] h-full">
-        <div className="flex flex-col bg-white rounded-[50px] py-[70px] px-[90px] gap-[65px] max-w-[1000px] shadow-default grow-0 shrink">
+      <div className="hidden sm:flex flex-col xl:flex-row xl:justify-center items-center sm:gap-[1rem] xl:gap-[1.8rem]  2xl:gap-[3.125rem] h-full">
+      <Image
+          alt="Portrait of Aidin"
+          src={"/portrait.jpg"}
+          width={575}
+          height={575}
+          className="block xl:hidden rounded-[60px] shadow-default w-[max(40vw,300px)] -mb-[5rem] -mt-[0rem] h-fit shrink-0 grow"
+        />
+        <div className="place-self-start flex flex-col bg-white rounded-[50px] sm:p-[3rem] md:p-[3.5rem] lg:p-[3.8rem] xl:p-[5rem] 2xl:p-[5.625rem] gap-[65px] max-w-[1000px] shadow-default grow-0 shrink">
           <div className="flex flex-col gap-[15px]">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center flex-wrap">
               <h1 className="text-[4rem] font-bold">
                 {"Hi, I'm"} <GradientText>Aidin!</GradientText>
               </h1>
@@ -46,7 +53,7 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap xl:flex-nowrap gap-[3rem]">
             <SkillCollection title="Core Frontend">
               <SkillBadge icon="logos:javascript" text="Javascript" />
               <SkillBadge icon="logos:typescript-icon" text="Javascript" />
@@ -69,7 +76,7 @@ export default function Page() {
               <SkillBadge icon="logos:atlassian" text="Pragmatic DND" />
             </SkillCollection>
           </div>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap gap-[2rem]">
             <ContactItem
               Icon={Envelope}
               title="Email"
@@ -93,7 +100,7 @@ export default function Page() {
           src={"/portrait.jpg"}
           width={575}
           height={575}
-          className="rounded-[60px] shadow-default w-fit h-fit shrink-0 grow"
+          className="hidden xl:block rounded-[60px] shadow-default w-fit h-fit shrink-0 grow"
         />
       </div>
       {/* Mobile version */}
