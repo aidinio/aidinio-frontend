@@ -13,7 +13,8 @@ export default function FilteredPortfolioList({
   const searchParams = useSearchParams();
   const categoryTitle = searchParams.get("category");
   return (
-    <div className="gap-x-10 gap-y-10 flex flex-col sm:grid justify-items-center grid-cols-[repeat(3,1fr)] max-w-[1920px]  mt-10">
+    // <div className="gap-x-10 gap-y-10 flex flex-col sm:grid justify-items-center grid-cols-[repeat(3,1fr)] max-w-[1920px]  mt-10">
+    <>
       {portfolios
         .filter((portfolio) =>
           categoryTitle ? portfolio.category.title === categoryTitle : portfolio
@@ -29,6 +30,7 @@ export default function FilteredPortfolioList({
             href={`/portfolio/${portfolio.urlTitle}`}
           />
         ))}
-    </div>
+    </>
+    // </div>
   );
 }
