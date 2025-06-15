@@ -31,7 +31,7 @@ export default function NavbarSubItem({ data }: { data: NavItem }) {
     <LevelContext.Provider value={level + 1}>
       <div className="hidden md:flex flex-col gap-[15px] ml-0">
         <div className="flex items-center content-center gap-3 ml-4">
-          <Link href={data.href} className="flex gap-2 items-center">
+          <Link href={data.href} className="flex gap-2 items-center text-[0.95rem] lg:text-[1rem]">
             <DynamicPhosphorIcon fontSize={"1rem"} weight={"bold"} icon={data.icon} ssr={false} />
             <span className={isActive ? "font-bold" : ""}>{data.label}</span>
           </Link>
@@ -44,15 +44,15 @@ export default function NavbarSubItem({ data }: { data: NavItem }) {
                 : null
             }
             className={clsx({
-              "bg-white shadow-sm p-2 rounded-full": data.subItems,
+              "bg-white shadow-sm p-2 rounded-full text-[0.95rem] lg:text-[1rem]": data.subItems,
             })}
           >
             {data.subItems && isOpen ? (
-              <Triangle size={10} weight="fill" className="rotate" />
+              <Triangle fontSize={"0.7em"} weight="fill" className="rotate" />
             ) : data.subItems && !isOpen ? (
-              <Triangle size={10} weight="fill" className="rotate-180" />
+              <Triangle fontSize={"0.7em"} weight="fill" className="rotate-180" />
             ) : isActive ? (
-              <Circle size={10} weight="fill" />
+              <Circle fontSize={"0.7em"} weight="fill" />
             ) : null}
           </div>
         </div>

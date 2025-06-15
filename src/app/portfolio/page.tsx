@@ -11,7 +11,6 @@ export default function Page() {
       </div>
       <div className="flex flex-wrap items-center justify-center gap-[4rem]">
         <PortfolioList />
-        <PortfolioList />
       </div>
     </div>
   );
