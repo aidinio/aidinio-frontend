@@ -4,7 +4,6 @@ import "./globals.css";
 import AnimatedElements from "@/ui/AnimatedElements";
 import Navbar from "@/ui/Navbar";
 import FilterDefinitions from "@/components/custom/FilterDefinitions";
-import clsx from "clsx";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,7 +47,7 @@ export default function RootLayout({
               </svg>
             </div>
             <FilterDefinitions />
-            <div className="blur-[50px] sm:blur-[150px] w-[100vw] h-[100vh] meow z-[1] fixed top-0 cat">
+            <div className="blur-[50px] sm:blur-[150px] w-[100vw] h-[100vh] z-[1] fixed top-0 cat">
               <div className="filter-[url(#goo)] overflow-hidden">
                 <AnimatedElements />
               </div>
