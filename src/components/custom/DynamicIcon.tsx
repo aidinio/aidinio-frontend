@@ -33,5 +33,5 @@ export default function DynamicPhosphorIcon({
           ),
         }
       );
-  return <Icon {...props} />;
+  return Icon ? <Icon {...props} /> : null;
 }

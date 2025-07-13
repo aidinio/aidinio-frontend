@@ -1,4 +1,4 @@
-import { PhosphorIconName } from "@/data/types";
+import { PhosphorIcon as PhosphorIconName } from "@/types/PhosphorIcon";
 import clsx from "clsx";
 import Link from "next/link";
 import DynamicPhosphorIcon from "./DynamicIcon";

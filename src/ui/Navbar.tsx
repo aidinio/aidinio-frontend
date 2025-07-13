@@ -1,6 +1,7 @@
 import { navItems } from "@/data/NavbarItems";
 import { NavbarItem } from "@/ui/NavbarItem";
 import clsx from "clsx";
+import { Suspense } from "react";
 
 export default async function Navbar({ hidden }: { hidden?: boolean }) {
   return (
@@ -12,7 +13,9 @@ export default async function Navbar({ hidden }: { hidden?: boolean }) {
     >
       {navItems.map((item) => (
         <li key={item.label}>
-          <NavbarItem key={item.label} data={item} hidden={hidden} />
+          <Suspense fallback={<p>Loading...</p>}>
+            <NavbarItem key={item.label} data={item} hidden={hidden} />
+          </Suspense>
         </li>
       ))}
     </ul>
