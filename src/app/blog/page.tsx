@@ -1,6 +1,5 @@
 import BlogPostsList from "@/ui/blog/BlogPostsList";
 import MobileHeading from "@/components/custom/MobileHeading";
-import PortfolioCategoryList from "@/ui/portfolio/PortfolioCategoryList";
 
 export default function Page() {
   return (

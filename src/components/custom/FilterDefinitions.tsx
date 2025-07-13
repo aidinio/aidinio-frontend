@@ -1,4 +1,8 @@
-export default function GrainFilter({ className }: { className?: string }) {
+export default function FilterDefinitions({
+  className,
+}: {
+  className?: string;
+}) {
   return (
     <svg
       className={`${className}`}
@@ -11,7 +15,7 @@ export default function GrainFilter({ className }: { className?: string }) {
         <mask id="rounded-rect-mask" mask-type="luminance">
           <rect x="0" y="0" width="40%" height="50%" fill="black" />
           <rect
-          id="wow"
+            id="wow"
             x="0"
             y="0"
             width="80%"
@@ -68,6 +72,9 @@ export default function GrainFilter({ className }: { className?: string }) {
             <feDistantLight azimuth="3" elevation="100"></feDistantLight>
           </feSpecularLighting>
         </filter>
+        <clipPath id="rounded-mask">
+          <rect x="0" y="0" rx="3.5rem" width="100vw" height="100vh" color="white" />
+        </clipPath>
       </defs>
     </svg>
   );

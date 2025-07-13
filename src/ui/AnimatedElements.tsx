@@ -70,7 +70,7 @@ const AnimatedElements = () => {
         height: "100vh",
         width: "100vw",
       }}
-    >
+      >
       {elements.map((_, index) => (
         <motion.div
           key={index}
@@ -81,8 +81,8 @@ const AnimatedElements = () => {
             ease: "easeInOut",
           }}
           className={`${classNames[index]} blur-[150px]`}
-        ></motion.div>
-      ))}
+          ></motion.div>
+        ))}
     </div>
   );
 };

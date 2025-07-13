@@ -20,16 +20,16 @@ export default function SimilarCarousel({
 }) {
   const { setApi, canPrev, canNext } = useCarousel();
   return (
-    <div className={`flex flex-col gap-[2.5rem] ${className}`}>
+    <div className={`flex flex-col gap-[2.5rem] grow w-full justify-center ${className}`}>
       <h3 className="text-[2.25rem] font-bold">Similar Articles</h3>
       <Carousel
         opts={{ dragFree: true }}
         setApi={setApi}
-        className="self-center flex flex-col sm:flex-row gap-[30px] relative max-w-[min(80vw,900px)]"
+        className="self-center place-self-center justify-self-center shrink grow flex flex-col sm:flex-row gap-[30px] relative"
       >
         <div className="sm:hidden flex items-center justify-center gap-[10rem] w-full mt-10">
-          <CarouselPrevious className="static scale-200" />
-          <CarouselNext className="static scale-200" />
+          <CarouselPrevious className="static flex items-center justify-center scale-200" />
+          <CarouselNext className="static flex items-center justify-center scale-200" />
         </div>
         <AnimatePresence>
           {canPrev && (
@@ -41,8 +41,8 @@ export default function SimilarCarousel({
             />
           )}
         </AnimatePresence>
-        <CarouselPrevious className="hidden sm:block size-[40px]" />
-        <CarouselContent className="flex gap-[50px]">
+        <CarouselPrevious className="hidden size-[40px] sm:flex items-center justify-center" />
+        <CarouselContent className="flex grow gap-[50px] max-w-[450px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[750px] 2xl:max-w-[1000px]">
           <DescriptionPreview
             title={"Using this and that to that"}
             description={"wokjsadlkf aslkdfj."}
@@ -77,7 +77,7 @@ export default function SimilarCarousel({
             />
           ))}
         </CarouselContent>
-        <CarouselNext className="hidden sm:block size-[40px]" />
+        <CarouselNext className="hidden sm:flex items-center justify-center size-[40px]" />
         <AnimatePresence>
           {canNext && (
             <motion.div

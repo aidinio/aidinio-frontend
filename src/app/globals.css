@@ -35,6 +35,10 @@
   clip-path: fill-box;
 }
 
+.cat {
+  clip-path: url(#rounded-mask)
+}
+
 .article-body {
   p {
     @apply indent-[17px];
