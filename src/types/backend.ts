@@ -43,6 +43,7 @@ export interface BlogPost {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  poster: Image;
 }
 
 export interface BlogPostTag {
@@ -70,4 +71,13 @@ export interface Portfolio {
   previewPicture: Image;
   images: Image[];
   category: PortfolioCategory;
+}
+
+export interface SimilarArticle {
+  id: number;
+  documentId: string;
+  title: string;
+  description: string;
+  urlTitle: string;
+  poster: Image;
 }

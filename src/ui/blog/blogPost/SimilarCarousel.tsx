@@ -8,14 +8,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import useCarousel from "@/hooks/useCarousel";
-import type { BlogPost } from "@/types/backend";
+import type { BlogPost, SimilarArticle } from "@/types/backend";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
 
 export default function SimilarCarousel({
   articles,
   className,
 }: {
-  articles: BlogPost[];
+  articles: SimilarArticle[] | BlogPost[];
   className?: string;
 }) {
   const { setApi, canPrev, canNext } = useCarousel();
@@ -43,29 +43,6 @@ export default function SimilarCarousel({
         </AnimatePresence>
         <CarouselPrevious className="hidden size-[40px] sm:flex items-center justify-center" />
         <CarouselContent className="flex grow gap-[50px] max-w-[450px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[750px] 2xl:max-w-[1000px]">
-          <DescriptionPreview
-            title={"Using this and that to that"}
-            description={"wokjsadlkf aslkdfj."}
-            href="#"
-            imageSrc="/suggestion.jpg"
-            imageAlt="Preview picture"
-          />
-          <DescriptionPreview
-            title={"Using this and that to that"}
-            description={
-              "wokjsadlkf arofsadl fsalkfj aslkjdf askldj faslkdjf aslkjdf askldf slkdfj aklsdj fasdf"
-            }
-            href="#"
-            imageSrc="/suggestion.jpg"
-            imageAlt="Preview picture"
-          />
-          <DescriptionPreview
-            title={"Using this and that to that"}
-            description={"wokjsadlkf aslkdfj aklsdj fasdf"}
-            href="#"
-            imageSrc="/suggestion.jpg"
-            imageAlt="Preview picture"
-          />
           {articles?.map((article) => (
             <DescriptionPreview
               title={article.title}
