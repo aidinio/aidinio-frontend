@@ -16,16 +16,16 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <>
-      <div className="hidden sm:flex flex-col xl:flex-row xl:justify-center items-center sm:gap-[1rem] xl:gap-[1.8rem]  2xl:gap-[3.125rem] h-full">
-      <Image
+    <div className="h-full w-full items-center justify-center">
+      <div className="hidden sm:flex flex-col xl:flex-row xl:justify-center items-center sm:gap-[1rem] xl:gap-[1.8rem] 2xl:gap-[3.125rem] h-full">
+        <Image
           alt="Portrait of Aidin"
           src={"/portrait.jpg"}
           width={575}
           height={575}
           className="block xl:hidden rounded-[60px] shadow-default w-[max(40vw,300px)] -mb-[5rem] -mt-[0rem] h-fit shrink-0 grow"
         />
-        <div className="place-self-start flex flex-col bg-white rounded-[50px] sm:p-[3rem] md:p-[3.5rem] lg:p-[3.8rem] xl:p-[5rem] 2xl:p-[5.625rem] gap-[65px] max-w-[1000px] shadow-default grow-0 shrink">
+        <div className="place-self-center-safe flex flex-col bg-white rounded-[50px] sm:p-[3rem] md:p-[3.5rem] lg:p-[3.8rem] xl:p-[5rem] 2xl:p-[5.625rem] gap-[65px] max-w-[1000px] shadow-default grow-0 shrink">
           <div className="flex flex-col gap-[15px]">
             <div className="flex justify-between items-center flex-wrap">
               <h1 className="text-[4rem] font-bold">
@@ -100,7 +100,7 @@ export default function Page() {
           src={"/portrait.jpg"}
           width={575}
           height={575}
-          className="hidden xl:block rounded-[60px] shadow-default w-fit h-fit shrink-0 grow"
+          className="hidden xl:block rounded-[60px] shadow-default w-fit h-fit shrink-0"
         />
       </div>
       {/* Mobile version */}
@@ -158,6 +158,6 @@ export default function Page() {
           <ContactItem Icon={GithubLogo} title="Github" content="aidinio" />
         </div>
       </div>
-    </>
+    </div>
   );
 }

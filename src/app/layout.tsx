@@ -52,12 +52,10 @@ export default function RootLayout({
                 <AnimatedElements />
               </div>
             </div>
-            <div className="relative p-3 lg:p-10 z-10 w-[100vw] h-[100vh]">
-              <div className="w-full flex flex-col sm:flex-row items-center justify-center h-full sm:gap-[1rem] xl:gap-[2rem] 2xl:gap-[3.75rem]">
+            <div className="relative p-3 sm:py-0 px-10 box-border z-10 w-[100vw] h-[100vh] max-h-[100vh] overflow-hidden">
+              <div className="flex flex-col sm:flex-row items-center-safe justify-start h-full box-border max-h-[100vh] sm:gap-[1rem] xl:gap-[2rem] 2xl:gap-[3.75rem] overflow-hidden">
                 <Navbar />
-                <div className="grow w-[70vw] h-full flex justify-center items-start fade-in-15 ease-in-out duration-1000 animate-move-in sm:mt-0 mt-[12rem]">
-                  {children}
-                </div>
+                <div className="w-full h-fit max-h-[100vh] flex items-center-safe justify-center-safe overflow-scroll">{children}</div>
               </div>
             </div>
           </div>
