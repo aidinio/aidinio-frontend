@@ -20,7 +20,7 @@ export default function SimilarCarousel({
 }) {
   const { setApi, canPrev, canNext } = useCarousel();
   return (
-    <div className={`flex flex-col gap-[2.5rem] grow w-full justify-center ${className}`}>
+    <div className={`flex flex-col gap-[2.5rem] grow max-w-[100vw] h-full w-full justify-center ${className}`}>
       <h3 className="text-[2.25rem] font-bold">Similar Articles</h3>
       <Carousel
         opts={{ dragFree: true }}
@@ -42,7 +42,7 @@ export default function SimilarCarousel({
           )}
         </AnimatePresence>
         <CarouselPrevious className="hidden size-[40px] sm:flex items-center justify-center" />
-        <CarouselContent className="flex grow gap-[50px] max-w-[450px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[750px] 2xl:max-w-[1000px]">
+        <CarouselContent className="flex grow gap-[50px] max-w-[min(450px,100vw)] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[750px] 2xl:max-w-[1000px]">
           {articles?.map((article) => (
             <DescriptionPreview
               title={article.title}

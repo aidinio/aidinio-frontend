@@ -13,7 +13,7 @@ export default async function Page({
   const { data: portfolio } = await getPortfolio(urlTitle);
   if (!portfolio) return <h1>Portfolio not found!</h1>;
   return (
-    <div className="flex grow h-full w-full items-start justify-center">
+    <div className="flex grow h-full w-full items-start justify-center mt-[6rem]">
       <div className="flex flex-col items-center gap-[2rem] sm:w-full">
         <ImageGallery images={portfolio.images} />
         <div className="flex flex-col items-center md:items-start gap-[3rem] sm:flex-row w-full justify-center px-[2rem] md:px-0">
