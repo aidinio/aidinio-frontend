@@ -30,12 +30,13 @@ export default function RootLayout({
           ${inter.className}
           antialiased selection:bg-[#b48de1] selection:text-white`}
       >
+        <FilterDefinitions />
         <div className="bg-black absolute top-0 left-0 w-[100vw] h-[100vh]"></div>
         <div className="bg-white rounded-[2rem] sm:rounded-[3.5rem] absolute top-0 left-0 w-[100vw] h-[100vh] p-0 overflow-hidden">
-          <div className="relative z-10 h-full overflow-scroll">
+          <div className="relative z-10 h-full overflow-auto">
             {/* <div className="fixed z-[2] bg-white rounded-[100px] left-[0px] top-[0px] w-[100vw] h-[100vh] block filter-[url(#nnnoise-filter)] resize-none opacity-60" /> */}
             <div className="fixed top-0 left-0 w-[100vw] h-[100vh] z-[2]">
-              <svg className="w-full h-full">
+              <svg className="absolute top-0 left-0 w-full h-full">
                 <rect
                   x="0"
                   y="0"
@@ -46,7 +47,6 @@ export default function RootLayout({
                 />
               </svg>
             </div>
-            <FilterDefinitions />
             <div className="blur-[50px] sm:blur-[150px] w-[100vw] h-[100vh] z-[1] fixed top-0 cat">
               <div className="filter-[url(#goo)] overflow-hidden">
                 <AnimatedElements />
@@ -55,7 +55,9 @@ export default function RootLayout({
             <div className="relative py-3 sm:py-0 sm:px-10 box-border z-10 w-[100vw] h-[100vh] max-h-[100vh] overflow-hidden">
               <div className="flex flex-col sm:flex-row items-center-safe justify-start h-full box-border max-h-[100vh] sm:gap-[1rem] xl:gap-[2rem] 2xl:gap-[3.75rem] overflow-hidden">
                 <Navbar />
-                <div className="w-full h-fit max-h-[100vh] flex items-center-safe justify-center-safe overflow-scroll">{children}</div>
+                <div className="w-full h-fit max-h-[100vh] flex items-center-safe justify-center-safe overflow-auto">
+                  {children}
+                </div>
               </div>
             </div>
           </div>

@@ -13,13 +13,13 @@ export default function FilterDefinitions({
     >
       <defs>
         <mask id="rounded-rect-mask" mask-type="luminance">
-          <rect x="0" y="0" width="40%" height="50%" fill="black" />
+          <rect x="0" y="0" width="100%" height="100%" fill="black" />
           <rect
             id="wow"
             x="0"
             y="0"
-            width="80%"
-            height="80%"
+            width="100%"
+            height="100%"
             rx="20"
             ry="20"
             fill="white"
@@ -38,8 +38,8 @@ export default function FilterDefinitions({
         </filter>
         <filter
           id="nnnoise-filter"
-          width="140%"
-          height="140%"
+          width="100%"
+          height="100%"
           x="0%"
           y="0%"
           colorInterpolationFilters="linearRGB"
@@ -47,8 +47,8 @@ export default function FilterDefinitions({
           primitiveUnits="userSpaceOnUse"
         >
           <feTurbulence
-            width="100%"
-            height="100%"
+            width="100vw"
+            height="100vh"
             x="0%"
             y="0%"
             baseFrequency="3.859"
@@ -58,8 +58,8 @@ export default function FilterDefinitions({
             stitchTiles="stitch"
           ></feTurbulence>
           <feSpecularLighting
-            width="100%"
-            height="100%"
+            width="100vw"
+            height="100vh"
             x="0%"
             y="0%"
             in="turbulence"
