@@ -14,9 +14,9 @@ export default async function Page({
   if (!portfolio) return <h1>Portfolio not found!</h1>;
   return (
     <div className="flex grow h-full w-full items-start justify-center mt-[6rem]">
-      <div className="flex flex-col items-center gap-[2rem] sm:w-full">
+      <div className="flex flex-col items-center gap-[2rem] lg:w-full">
         <ImageGallery images={portfolio.images} />
-        <div className="flex flex-col items-center md:items-start gap-[3rem] sm:flex-row w-full justify-center px-[2rem] md:px-0">
+        <div className="flex flex-col items-center md:items-start gap-[3rem] lg:flex-row w-full justify-center px-[2rem] md:px-0">
           <div className="grow md:max-w-[50rem]">
             <Description title={portfolio.title}>
               {portfolio.description}

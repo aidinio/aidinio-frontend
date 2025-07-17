@@ -53,7 +53,7 @@ export default function RootLayout({
               </div>
             </div>
             <div className="relative py-3 sm:py-0 sm:px-10 box-border z-10 w-[100vw] h-[100vh] max-h-[100vh] overflow-hidden">
-              <div className="flex flex-col sm:flex-row items-center-safe justify-start h-full box-border max-h-[100vh] sm:gap-[1rem] xl:gap-[2rem] 2xl:gap-[3.75rem] overflow-hidden">
+              <div className="flex flex-col sm:flex-row items-center-safe justify-center xl:justify-start h-full box-border max-h-[100vh] sm:gap-[1rem] xl:gap-[2rem] 2xl:gap-[3.75rem] overflow-hidden">
                 <Navbar />
                 <div className="w-full h-fit max-h-[100vh] flex items-center-safe justify-center-safe overflow-auto">
                   {children}
