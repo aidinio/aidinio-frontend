@@ -15,7 +15,7 @@ export default function DescriptionPreview({
   imageAlt: string;
 }) {
   return (
-    <div className="flex flex-col bg-white rounded-[2.25rem] shadow-default h-full min-h-[30rem] justify-between">
+    <div className="flex flex-col bg-white rounded-[2.25rem] shadow-default h-full min-h-[30rem] justify-between max-w-[350px]">
       <div className="p-[1rem] flex flex-col grow h-full items-center justify-between gap-[20px]">
         <Image
           className="rounded-[1.25rem] w-full min-w-[min(90vw,300px)]"

@@ -1,8 +1,37 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export default function FilterDefinitions({
   className,
 }: {
   className?: string;
 }) {
+  // const turbulenceRef = useRef<SVGFETurbulenceElement | null>(null);
+  // // const turbulenceRef = useRef(null);
+  // const lastUpdateTime = useRef(0);
+  // const throttleDelay = 100; // Throttle delay in milliseconds
+  // useEffect(() => {
+  //   if (turbulenceRef.current == null) return;
+
+  //   let cnt = 10;
+  //   let animationFrameId: number;
+
+  //   const updateSeed = (timestamp: number) => {
+  //     if (timestamp - lastUpdateTime.current >= throttleDelay) {
+  //       if (turbulenceRef.current) {
+  //         turbulenceRef.current.setAttribute("seed", `${cnt++}`);
+  //       }
+  //       lastUpdateTime.current = timestamp; // Update the last update time
+  //     }
+  //     animationFrameId = requestAnimationFrame(updateSeed);
+  //   };
+
+  //   animationFrameId = requestAnimationFrame(updateSeed);
+
+  //   return () => cancelAnimationFrame(animationFrameId);
+  // }, [turbulenceRef]);
+  
   return (
     <svg
       className={`${className}`}
@@ -47,6 +76,7 @@ export default function FilterDefinitions({
           primitiveUnits="userSpaceOnUse"
         >
           <feTurbulence
+            // ref={turbulenceRef}
             width="100vw"
             height="100vh"
             x="0%"
@@ -73,7 +103,14 @@ export default function FilterDefinitions({
           </feSpecularLighting>
         </filter>
         <clipPath id="rounded-mask">
-          <rect x="0" y="0" rx="3.5rem" width="100vw" height="100vh" color="white" />
+          <rect
+            x="0"
+            y="0"
+            rx="3.5rem"
+            width="100vw"
+            height="100vh"
+            color="white"
+          />
         </clipPath>
       </defs>
     </svg>
