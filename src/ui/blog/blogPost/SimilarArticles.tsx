@@ -15,6 +15,7 @@ export default async function similarArticles({
     data: similarArticles,
   }: { data: SimilarArticle[] | BlogPost[] | undefined } =
     await getArticlesWithTags(tags.map((tag) => tag.label));
+  similarArticles = similarArticles?.filter((article) => article.id !== currentArticleId);
   if (!similarArticles || similarArticles.length === 0) {
     const { data } = await getPosts();
     similarArticles = data.slice(0, 5);

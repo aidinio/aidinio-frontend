@@ -1,8 +1,15 @@
-import { getPortfolio } from "@/lib/client";
+import { getPortfolio, getPortfolios } from "@/lib/client";
 import ImageGallery from "@/ui/portfolio/portfolioItem/ImageGallery";
 import Description from "@/ui/portfolio/portfolioItem/Description";
 import TechnologiesCard from "@/ui/portfolio/portfolioItem/TechnologiesCard";
 import Link from "next/link";
+
+export async function generateStaticParams() {
+  const { data: portfolios } = await getPortfolios();
+  return portfolios.map((portfolio) => ({
+    urlTitle: portfolio.urlTitle,
+  }));
+}
 
 export default async function Page({
   params,
