@@ -11,8 +11,8 @@ export default function TitledCardList({
   Cards: ReactElement;
 }) {
   return (
-    <div className="w-full h-fit sm:bg-white rounded-[50px] mt-[8rem] sm:p-[4.5rem] box-border relative sm:shadow-default max-w-[2100px]">
-      <div className="flex flex-wrap flex-col sm:flex-row mb-10 xl:mb-0">
+    <div className="w-full h-fit sm:bg-white rounded-[50px] mt-[8rem] sm:p-[4.5rem] box-border relative sm:shadow-default max-w-[2100px] flex flex-col gap-5">
+      <div className="flex flex-wrap gap-5 flex-col sm:flex-row xl:mb-0">
         <MobileHeading title={title} />
         {Categories}
       </div>

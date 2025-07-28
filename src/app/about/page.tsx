@@ -56,10 +56,10 @@ export default function Page() {
           <div className="flex justify-between flex-wrap xl:flex-nowrap gap-[3rem]">
             <SkillCollection title="Core Frontend">
               <SkillBadge icon="logos:javascript" text="Javascript" />
-              <SkillBadge icon="logos:typescript-icon" text="Javascript" />
+              <SkillBadge icon="logos:typescript-icon" text="Typescript" />
               <SkillBadge icon="logos:react" text="React" />
-              <SkillBadge icon="logos:nextjs-icon" text="Javascript" />
-              <SkillBadge icon="logos:tailwindcss-icon" text="Javascript" />
+              <SkillBadge icon="logos:nextjs-icon" text="Next.js" />
+              <SkillBadge icon="logos:tailwindcss-icon" text="TailwindCSS" />
             </SkillCollection>
             <SkillCollection title="Additional Frontend">
               <SkillBadge icon="logos:redux" text="Redux" />

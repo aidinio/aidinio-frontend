@@ -14,7 +14,7 @@ const header = {
 };
 
 export async function getPosts() {
-  const res = await fetch(`${API}/blog-posts`, {
+  const res = await fetch(`${API}/blog-posts?populate=*`, {
     method: "GET",
     headers: header,
     next: {
@@ -27,7 +27,7 @@ export async function getPosts() {
 
 export async function getPost(urlTitle: string) {
   const res = await fetch(
-    `${API}/blog-posts?filters[urlTitle][$eq]=${urlTitle}&populate[0]=tags.blogPosts&populate[1]=author.image`,
+    `${API}/blog-posts?filters[urlTitle][$eq]=${urlTitle}&populate[0]=tags.blogPosts&populate[1]=author.image&populate[2]=poster`,
     {
       method: "GET",
       headers: header,
@@ -88,6 +88,5 @@ export async function getArticlesWithTags(tags: string[]) {
     },
   });
   const { data }: { data: SimilarArticle[] | undefined } = await res.json();
-  console.log(res);
   return { data };
 }

@@ -23,13 +23,15 @@ export default function PortfolioPrecategoryviewCard({
     <div className="grow sm:flex-1/2 xl:flex-1/3 sm:grow-0 flex items-center justify-center min-w-[28rem]">
       <div className="flex-1/2 lg:flex-1/3 flex flex-col grow rounded-[30px] shadow-default min-w-[25rem] max-w-[425px] bg-white">
         <div className="overflow-hidden rounded-t-[30px] relative">
+          <div className="w-full h-[250px]">
           <Image
-            className="w-[26.6rem] h-[15rem] object-cover"
+            className="w-full h-full object-cover"
             src={imageSrc}
             alt={imageAlt}
             width="300"
             height="200"
-          />
+            />
+            </div>
           <div className="rounded-tl-[20px] absolute bottom-0 right-0 flex gap-3 items-center justify-center bg-white p-3 shadow-default">
             {category.title}
           </div>
