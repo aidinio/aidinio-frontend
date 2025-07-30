@@ -12,12 +12,11 @@ import {
   TelegramLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="h-full w-full items-center justify-center">
-      <div className="hidden sm:flex flex-col xl:flex-row xl:justify-center items-center sm:gap-[1rem] xl:gap-[1.8rem] 2xl:gap-[3.125rem] h-full">
+    <div className="h-full w-full items-center justify-center overflow-visible">
+      <div className="hidden sm:flex flex-col xl:flex-row xl:justify-center items-center sm:gap-[1rem] xl:gap-[1.8rem] 2xl:gap-[3.125rem] h-full overflow-visible">
         <Image
           alt="Portrait of Aidin"
           src={"/portrait.jpg"}
@@ -27,16 +26,15 @@ export default function Page() {
         />
         <div className="place-self-center-safe flex flex-col bg-white rounded-[50px] sm:p-[3rem] md:p-[3.5rem] lg:p-[3.8rem] xl:p-[5rem] 2xl:p-[5.625rem] gap-[65px] max-w-[1000px] shadow-default grow-0 shrink">
           <div className="flex flex-col gap-[15px]">
-            <div className="flex justify-between items-center flex-wrap">
+            <div className="flex justify-between items-center flex-wrap gap-2">
               <h1 className="text-[4rem] font-bold">
                 {"Hi, I'm"} <GradientText>Aidin!</GradientText>
               </h1>
-              <Link
-                href="#"
-                className="flex items-center justify-center rounded-[20px] font-semibold text-[1rem] gap-[10px] bg-gradient-to-r to-50%  from-[#B3B8E9] to-[#FFD9F0] px-[30px] py-[1.125rem] shadow-lg"
-              >
-                Resume <DownloadSimple size={22} weight="bold" />
-              </Link>
+              <div className="grow-1 max-w-[10rem]">
+                <PrimaryLink href={"#"}>
+                  Resume <DownloadSimple size={22} weight="bold" />
+                </PrimaryLink>
+              </div>
             </div>
             <div className="leading-[160%] font-medium text-[1.25rem]">
               <p>

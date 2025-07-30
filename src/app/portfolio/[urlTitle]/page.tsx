@@ -3,6 +3,7 @@ import ImageGallery from "@/ui/portfolio/portfolioItem/ImageGallery";
 import Description from "@/ui/portfolio/portfolioItem/Description";
 import TechnologiesCard from "@/ui/portfolio/portfolioItem/TechnologiesCard";
 import Link from "next/link";
+import { GithubLogo, MonitorPlay } from "@phosphor-icons/react/dist/ssr";
 
 export async function generateStaticParams() {
   const { data: portfolios } = await getPortfolios();
@@ -31,12 +32,26 @@ export default async function Page({
           </div>
           <div className="flex flex-col grow-[2] w-full max-w-[30rem] gap-[2rem] items-center md:items-start">
             <TechnologiesCard technologies={portfolio.technologyTags} />
-            <Link
-              href={portfolio.liveLink}
-              className="w-full py-[14px] text-[1.25rem] font-semibold flex justify-center items-center self-center rounded-[19px] bg-gradient-to-r from-[#B1FFCB] to-[#D3FFC9] shadow-[0px_0px_15px_2px_#C2FFCA] mb-[2rem] md:mb-0"
-              >
-              View Live
-            </Link>
+            <div className="flex grow w-full gap-[2rem]">
+              {portfolio?.liveLink && (
+                <Link
+                href={portfolio.liveLink}
+                className="w-full grow py-[14px] text-[1.25rem] font-semibold flex justify-center items-center self-center rounded-[19px] bg-gradient-to-r from-[#B1FFCB] to-[#D3FFC9] shadow-[0px_0px_15px_2px_#C2FFCA] mb-[2rem] md:mb-0"
+                >
+                  <MonitorPlay weight="bold" fontSize={"1.5rem"} className="mr-2"/>
+                  Live
+                </Link>
+              )}
+              {portfolio?.githubLink && (
+                <Link
+                  href={portfolio.githubLink}
+                  className="w-full grow py-[14px] text-[1.25rem] font-semibold flex justify-center items-center self-center rounded-[19px] bg-gradient-to-r bg-white md:mb-0 shadow-default"
+                >
+                  <GithubLogo weight="bold" fontSize={"1.5rem"} className="mr-2"/>
+                  Github
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>

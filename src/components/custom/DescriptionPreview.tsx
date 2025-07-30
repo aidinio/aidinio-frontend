@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import PrimaryLink from "./link/PrimaryLink";
 
 export default function DescriptionPreview({
   title,
@@ -32,13 +32,19 @@ export default function DescriptionPreview({
               {description.length > 100 && "..."}
             </p>
           </div>
-          <Link
+          {/* <Link
             href={href}
             className="mb-[10px] flex justify-center items-center gap-[20px] bg-gradient-to-r from-[#BAF7FF77] via-[#FEFFBA77] to-[#FFB2B277] rounded-full px-[20px] py-[14px] font-semibold"
           >
             <span className="grow shrink-0">Read More</span>
             <div className="bg-[url(/arrow.svg)] bg-center bg-size-[cover] size-[18px] bg-no-repeat grow shrink-0"></div>
-          </Link>
+          </Link> */}
+          <PrimaryLink href={href}>
+            More
+            <div
+              className={`bg-[url(/arrow.svg)] bg-center bg-size-[cover] size-[1rem] md:size-[1.25rem] bg-no-repeat inline-block`}
+            />
+          </PrimaryLink>
         </div>
       </div>
     </div>

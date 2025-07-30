@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import useCarousel from "@/hooks/useCarousel";
+import { BASE } from "@/lib/client";
 import type { BlogPost, SimilarArticle } from "@/types/backend";
 import { AnimatePresence, easeInOut, motion } from "framer-motion";
 
@@ -25,7 +26,7 @@ export default function SimilarCarousel({
       <Carousel
         opts={{ dragFree: true }}
         setApi={setApi}
-        className="self-center place-self-center justify-self-center shrink grow flex flex-col sm:flex-row gap-[30px] relative"
+        className="self-center place-self-center justify-self-center shrink grow flex flex-col sm:flex-row gap-[30px] relative w-full"
       >
         <div className="sm:hidden flex items-center justify-center gap-[10rem] w-full mt-10">
           <CarouselPrevious className="static flex items-center justify-center scale-200" />
@@ -42,15 +43,15 @@ export default function SimilarCarousel({
           )}
         </AnimatePresence>
         <CarouselPrevious className="hidden size-[40px] sm:flex items-center justify-center" />
-        <CarouselContent className="flex grow gap-[50px] max-w-[min(450px,100vw)] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[750px] 2xl:max-w-[1000px]">
+        <CarouselContent className="flex grow gap-[50px] max-w-[min(450px,100vw)] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[750px] 2xl:max-w-[1000px] w-full">
           {articles?.map((article) => (
             <DescriptionPreview
               title={article.title}
               description={article.description}
               href={`/blog/${article.urlTitle}`}
               key={article.urlTitle}
-              imageSrc="/suggestion.jpg"
-              imageAlt="Preview picture"
+              imageSrc={`${BASE}${article.poster.formats.small.url}` || "/placeholder.png"}
+              imageAlt="Post Preview"
             />
           ))}
         </CarouselContent>

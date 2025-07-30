@@ -12,7 +12,7 @@ export default async function BlogPostsList() {
           description={post.description}
           href={encodeURI(`/blog/${encodeURIComponent(post.urlTitle)}`)}
           imageSrc={`${BASE}${post.poster.formats.small.url}` || "/placeholder.png"}
-          imageAlt="Preview hi"
+          imageAlt="Blog Preview"
         />
       ))}
     </>

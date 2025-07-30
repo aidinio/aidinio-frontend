@@ -66,7 +66,8 @@ export interface Portfolio {
   title: string;
   urlTitle: string;
   description: string;
-  liveLink: string;
+  liveLink?: string;
+  githubLink?: string;
   technologyTags: Technology[];
   previewPicture: Image;
   images: Image[];
