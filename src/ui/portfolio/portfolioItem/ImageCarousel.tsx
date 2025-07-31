@@ -5,20 +5,20 @@ import Image from "next/image";
 
 export default function ImageCarousel({images} : {images: ImageType[]}) {
   return (
-    <div className="block w-[100vw] sm:mt-[6rem] md:mt-0 sm:w-full xl:w-[60%] mt-10">
-      <Carousel className="flex flex-col">
-        <CarouselContent className="w-full max-w-full h-full max-h-[40rem]">
+    <div className="block w-[100vw] sm:mt-[6rem] md:mt-0 sm:w-full mt-10">
+      <Carousel className="flex flex-col w-full">
+        <CarouselContent className="w-full max-w-full h-[40rem] max-h-[60rem]">
           {images.map((image) => (
             <CarouselItem
               key={image.id}
               className="flex items-center justify-center w-full h-full"
             >
-              <div className="flex justify-center items-center h-full px-[5rem] ">
+              <div className="flex justify-center items-center h-full w-full ">
                 <Image
                   src={`${BASE}${image.formats.medium.url}`}
-                  width={769}
-                  height={454}
-                  className="object-cover w-full h-full"
+                  width={1140}
+                  height={640}
+                  className="object-contain w-full h-full"
                   alt="portfolio picture"
                 />
               </div>
