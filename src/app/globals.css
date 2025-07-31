@@ -9,6 +9,49 @@
   --animate-blur-out: blur-out 2s ease-in-out both;
 }
 
+.gradient-bg {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at 0% 0%, #7EFFB2cc, transparent 40%),
+              radial-gradient(circle at 25% 25%, #e4b9b9cc, transparent 30%),
+              radial-gradient(circle at 95% 25%, #e4b9b9cc, transparent 30%),
+              radial-gradient(circle at 100% 100%, #FEFF57cc, transparent 30%),
+              radial-gradient(circle at 15% 95%, #DCAFFFcc, transparent 30%),
+              radial-gradient(circle at 100% 100%, #DCAFFFcc, transparent 30%),
+              radial-gradient(circle at 75% 15%, #FEFF57cc, transparent 20%),
+              radial-gradient(circle at 50% 50%, #8BF7FFcc, transparent 30%),
+              radial-gradient(circle at 0% 0%, #8BF7FFcc, transparent 30%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 7s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 0%;
+  }
+  20% {
+      background-position: 0% 100%;
+  }
+  40% {
+      background-position: 100% 0%;
+  }
+  60% {
+      background-position: 100% 100%;
+  }
+  70% {
+    rotate: 0deg;
+  }
+  80% {
+      background-position: 50% 50%;
+  }
+  100% {
+      background-position: 0% 0%;
+  }
+}
+
+
 @keyframes move-in {
   from {
     transform: translateY(100px);
