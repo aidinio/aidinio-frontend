@@ -16,7 +16,7 @@ export default function TitledCardList({
         <MobileHeading title={title} />
         {Categories}
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(450px,1fr))] grid-rows-[repeat(auto-fit,1fr)] gap-[3rem] items-center justify-items-center">
+      <div className="px-4 sm:px-0 grid grid-cols-[repeat(auto-fit,1fr)] sm:grid-cols-[repeat(auto-fit,minmax(450px,1fr))] grid-rows-[repeat(auto-fit,1fr)] gap-[3rem] items-center justify-items-center">
         {Cards}
       </div>
     </div>
