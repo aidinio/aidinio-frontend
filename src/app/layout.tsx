@@ -31,10 +31,10 @@ export default function RootLayout({
       >
         <FilterDefinitions />
         <div className="bg-black absolute top-0 left-0 w-[100vw] h-[100vh]"></div>
-        <div className="bg-white rounded-[2rem] sm:rounded-[3.5rem] absolute top-0 left-0 w-[100vw] h-[100vh] p-0 overflow-hidden">
+        <div className="bg-white sm:rounded-[3.5rem] absolute top-0 left-0 w-[100vw] h-[100vh] p-0 overflow-hidden">
           <div className="relative z-10 h-full overflow-auto">
             <div className="fixed top-0 left-0 w-[100vw] h-[100vh] z-[2]">
-              <svg className="absolute top-0 left-0 w-full h-full">
+              <svg className="hiddden sm:block absolute top-0 left-0 w-full h-full">
                 <rect
                   x="0"
                   y="0"
@@ -44,9 +44,18 @@ export default function RootLayout({
                   filter="url(#nnnoise-filter)"
                 />
               </svg>
+              <svg className="block sm:hidden absolute top-0 left-0 w-full h-full">
+                <rect
+                  x="0"
+                  y="0"
+                  width="100%"
+                  height="100%"
+                  filter="url(#nnnoise-filter)"
+                />
+              </svg>
             </div>
-            <div className="blur-[50px] sm:blur-[150px] w-[100vw] h-[100vh] z-[1] fixed top-0 cat">
-              <div className="gradient-bg "></div>
+            <div className="w-[100vw] h-[100vh] z-[1] fixed top-0 sm:[clip-path:url(#rounded-mask)]">
+              <div className="gradient-bg"></div>
             </div>
             <div className="relative py-3 sm:py-0 sm:px-10 box-border z-10 w-[100vw] h-[100vh] max-h-[100vh] overflow-hidden">
               <div className="flex flex-col sm:flex-row items-center-safe justify-center xl:justify-start h-full box-border max-h-[100vh] sm:gap-[1rem] xl:gap-[2rem] 2xl:gap-[3.75rem] overflow-hidden">

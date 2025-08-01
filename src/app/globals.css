@@ -13,17 +13,17 @@
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  background: radial-gradient(circle at 0% 0%, #7EFFB2, transparent 30%),
-              radial-gradient(circle at 25% 25%, #e4b9b9, transparent 40%),
-              radial-gradient(circle at 25% 25%, #e4b9b9, transparent 40%),
-              radial-gradient(circle at 95% 25%, #e4b9b9, transparent 50%),
-              radial-gradient(circle at 100% 100%, #FEFF57, transparent 40%),
-              radial-gradient(circle at 15% 95%, #DCAFFF, transparent 40%),
-              radial-gradient(circle at 100% 100%, #DCAFFF, transparent 40%),
-              radial-gradient(circle at 75% 15%, #FEFF57, transparent 30%),
-              radial-gradient(circle at 50% 50%, #8BF7FF, transparent 40%),
-              radial-gradient(circle at 50% 0%, #8BF7FF, transparent 40%),
-              radial-gradient(circle at 90% 100%, #8BF7FF, transparent 60%);
+  background: radial-gradient(circle at 0% 0%, #7effb2, transparent 30%),
+    radial-gradient(circle at 25% 25%, #e4b9b9, transparent 40%),
+    radial-gradient(circle at 25% 25%, #e4b9b9, transparent 40%),
+    radial-gradient(circle at 95% 25%, #e4b9b9, transparent 50%),
+    radial-gradient(circle at 100% 100%, #feff57, transparent 40%),
+    radial-gradient(circle at 15% 95%, #dcafff, transparent 40%),
+    radial-gradient(circle at 100% 100%, #dcafff, transparent 40%),
+    radial-gradient(circle at 75% 15%, #feff57, transparent 30%),
+    radial-gradient(circle at 50% 50%, #8bf7ff, transparent 40%),
+    radial-gradient(circle at 50% 0%, #8bf7ff, transparent 40%),
+    radial-gradient(circle at 90% 100%, #8bf7ff, transparent 60%);
   background-size: 200% 200%;
   animation: gradientAnimation 17s ease-in-out infinite;
   animation-direction: alternate;
@@ -31,28 +31,27 @@
 
 @keyframes gradientAnimation {
   0% {
-      background-position: 0% 0%; 
+    background-position: 0% 0%;
   }
   20% {
-      background-position: 0% 100%;
+    background-position: 0% 100%;
   }
   40% {
-      background-position: 100% 0%;
+    background-position: 100% 0%;
   }
   60% {
-      background-position: 100% 100%;
+    background-position: 100% 100%;
   }
   70% {
     background-position: 30% 70%;
   }
   80% {
-      background-position: 50% 50%;
+    background-position: 50% 50%;
   }
   100% {
-      background-position: 0% 0%;
+    background-position: 0% 0%;
   }
 }
-
 
 @keyframes move-in {
   from {
@@ -74,14 +73,6 @@
     opacity: 0;
     filter: blur(50px);
   }
-}
-
-.meow {
-  clip-path: fill-box;
-}
-
-.cat {
-  clip-path: url(#rounded-mask)
 }
 
 .article-body {
@@ -109,10 +100,12 @@
   a {
     @apply rounded-[10px] transition-all hover:bg-linear-to-r text-blue-500 hover:text-black hover:no-underline hover:from-[#BAF7FF66] hover:via-[#FEFFBA66] hover:to-[#FFB2B266] underline px-3 py-1;
   }
-  strong, b {
+  strong,
+  b {
     @apply font-bold;
   }
-  em, i {
+  em,
+  i {
     @apply italic;
   }
 }
